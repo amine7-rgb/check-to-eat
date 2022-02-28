@@ -32,19 +32,40 @@ public class Gpartenaire {
     //   System.out.println(ds1);
         
         //Datasource ds2=Datasource.getInstance();
-      //System.out.println(ds2);
+     // System.out.println(ds2);
 
-        //Restau p1=new Restau("mm","a","a","a","a"); 
+       Categorie c1 =new Categorie("ammmmmmm");  
+       CatService cs = new CatService();
         
-       // RestauService ps=new RestauService();
-     // ps.insert(p1);
-      // ps.delete(p1);
-     
-     //  ps.update(p1);
+      cs.insert(c1);
+       System.out.println(cs.read());
+      // c1=cs.readid("ammmmmmm");
+       //System.out.println(c1);
+       //cs.supprimer(57);
+       //cs.delete(c1);
+    //    System.out.println(cs.readid("a"));
+      ////  System.out.println(cs.read());
+       //System.out.println(c1);
+       //System.out.println(cs.read());
+         
        
-       //System.out.println(ps.read());
+     
+      
+     // Restau p1=new Restau("amine","rr","a","a","a",c1); 
+      Restau p1=new Restau("amie","rr","a","a","a",65); 
+      RestauService ps=new RestauService();
+     ps.insert(p1);
+      
+      //ps.delete(p1);
+     System.out.println(ps.read());
+    
+     
+      // ps.update(p1);
+     
+     
           //ps.rechercher(p1,"amine") ;
       //   System.out.println(ps.readByNom());
+      //  System.out.println(ps.ChercherCentreParNom("mm"));
        
       
       
@@ -55,20 +76,19 @@ public class Gpartenaire {
       
       
       
-       Categorie c1 =new Categorie("aa");  
-       CatService cs = new CatService();
-        //cs.insert(c1);
-    //    cs.delete(c1);
-        cs.updateid(c1);
+      // Categorie c1 =new Categorie("aa");  
+       //CatService cs = new CatService();
+    //   cs.insert(c1);
+    // cs.delete(c1);
+        //cs.updateid(c1);
     
        // cs.update(c1);
         // cs.supprimer(5);
-         System.out.println(cs.read());
+         //System.out.println(cs.read());
         
-        System.out.println(cs.ChercherCentreParType("amine"));
+        //System.out.println(cs.ChercherCentreParType("amine"));
      
         
         
     }
-    
 }

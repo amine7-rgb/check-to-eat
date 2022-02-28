@@ -59,10 +59,10 @@ public class CatService implements IService<Categorie>{
     public void delete(Categorie c) {
     
         
-          String req = "delete from categorie where type=?";
+          String req = "delete from categorie where id=?";
          try {
             pst = conn.prepareStatement(req);
-            pst.setString(1, c.getType());
+            pst.setInt(1, c.getId());
            int rowsDeleted = pst.executeUpdate();
             if (rowsDeleted > 0) {
     System.out.println("A user was deleted successfully!");
@@ -147,10 +147,10 @@ public class CatService implements IService<Categorie>{
     
      public void supprimer(int id) {
      try {
-            String requete = "DELETE FROM categorie where id =?";
-            PreparedStatement pst = Datasource.getInstance().getCnx().prepareStatement(requete);
+              PreparedStatement pt =conn.prepareStatement("DELETE FROM categorie where id =?");
+           // PreparedStatement pst = Datasource.getInstance().getCnx().prepareStatement(requete);
             pst.setInt(1,id );
-            
+            pst.execute();
             //System.out.println("Panier supprimer");
            int rowsDeleted = pst.executeUpdate();
             if (rowsDeleted > 0) {
@@ -217,6 +217,71 @@ public class CatService implements IService<Categorie>{
         Collections.reverse(l);
         return l;
     }
-*/
     
-}
+    
+    
+    
+*/
+   
+     public Categorie readid(String type) {
+       
+                String req="select *from categorie where type=? limit 1";
+                    Categorie ca= new Categorie();
+                    
+                    
+        try {
+            pst = conn.prepareStatement(req);
+            pst.setString(1,type);
+          
+            rs = pst.executeQuery();
+
+            while(rs.next()){
+              ca =  new Categorie(rs.getInt("id"),rs.getString("type"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RestauService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ca;
+      
+    }
+     
+     
+     public void modifierbs (int id,String t1)
+     {
+     
+     try{
+          PreparedStatement pt= conn.prepareStatement("update categorie set type=? where id=?");
+            pt.setString(1, t1);
+            pt.setInt(2, id);
+            pt.execute();
+            
+
+            pt.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(CatService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
+     
+     
+     }
+     
+     
+     
+     
+       public void supprimerr(int id_)
+    {
+        try {
+            PreparedStatement pt =conn.prepareStatement("delete from categorie where id=?" );
+            pt.setInt(1,id_);
+            pt.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(CatService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     
+     
+     
+     }
+    
+   
+

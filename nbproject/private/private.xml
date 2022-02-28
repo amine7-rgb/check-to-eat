@@ -3,10 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/gui/categorie.fxml</file>
+            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/entity/Categorie.java</file>
+            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/gpartenaire/Gpartenaire.java</file>
+            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/service/CatService.java</file>
+            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/gui/FXMLController.java</file>
             <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/service/RestauService.java</file>
+            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/gui/CategorieController.java</file>
             <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/entity/Restau.java</file>
-            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/service/IService.java</file>
+            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/gui/PartenaireController.java</file>
+            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/gui/NewFXMain.java</file>
             <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/utils/Datasource.java</file>
         </group>
     </open-files>

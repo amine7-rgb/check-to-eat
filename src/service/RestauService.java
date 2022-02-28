@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package service;
+import entity.Categorie;
 import entity.Restau;
 import java.sql.*;
 import java.util.ArrayList;
@@ -30,10 +31,13 @@ public class RestauService implements IService<Restau>{
         conn = Datasource.getInstance().getCnx();
     }
 
+  
     @Override
     public void insert(Restau r) {
-    
-      String req = "insert into partenaire (nom,datef,local,image,descr) values (?,?,?,?,?)";
+        
+     
+        
+      String req = "insert into partenaire (nom,datef,local,image,descr,id_cat) values (?,?,?,?,?,?)";
         try {
             pst = conn.prepareStatement(req);
             pst.setString(1, r.getNom());
@@ -41,13 +45,15 @@ public class RestauService implements IService<Restau>{
             pst.setString(3, r.getLocal());
             pst.setString(4, r.getImage());
             pst.setString(5, r.getDescr());
+            pst.setInt(6, r.getcat());
+//          pst.setObject(6, r.getcat().getId());
+         
             pst.executeUpdate();
 
         } catch (SQLException ex) {
             Logger.getLogger(RestauService.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
-    
+   
     }
 
     @Override
@@ -68,27 +74,27 @@ public class RestauService implements IService<Restau>{
 
     }
 
+    /*
     @Override
     public void update(Restau r) {
       
      
- String a = "h";
- String pnom =r.getNom();
- String pp ="hh"; 
- String uu ="loc";
- String ss ="taa";    
+
+ String pnom =r.getNom(); 
+   
      
-    String req = "update partenaire SET datef=?,local=?,image=?,descr=? WHERE nom=?";
+    String req = "update partenaire SET datef=?,local=?,image=?,descr=?,id_cat=? WHERE nom=?";
    
       try {
           
             pst = conn.prepareStatement(req);
-            pst.setString(1, a);            
-            pst.setString(2, pp);
-            pst.setString(3, uu);
-            pst.setString(4, ss);
-            pst.setString(5, pnom);
-            
+            pst.setString(1, r.getDatef());            
+            pst.setString(2, r.getLocal());
+            pst.setString(3, r.getImage());
+            pst.setString(4, r.getDescr());
+
+          //  pst.setInt(5, r.getId_cat());
+            pst.setString(6, pnom);            
            //   pst.setInt(3,i);
            int rowsDeleted = pst.executeUpdate();
            
@@ -101,17 +107,22 @@ public class RestauService implements IService<Restau>{
         }
 
     }
-
+*/
     @Override
     public List<Restau> read() {
         
                 String req="select * from partenaire";
                     List<Restau> list=new ArrayList<>();
+                 //   Restau r = new Restau();
+                   // int a =r.getcat().getId();
+                   // CatService ca = new CatService();
+                   // Categorie m =new Categorie();
+                    
         try {
             ste=conn.createStatement();
             rs= ste.executeQuery(req);
             while(rs.next()){
-                list.add(new Restau(rs.getInt("id"), rs.getString("nom"), rs.getString("datef"), rs.getString("local"), rs.getString("image"), rs.getString("descr")));
+             list.add(new Restau(rs.getInt("id"), rs.getString("nom"), rs.getString("datef"), rs.getString("local"), rs.getString("image"), rs.getString("descr"),rs.getInt("id_cat")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(RestauService.class.getName()).log(Level.SEVERE, null, ex);
@@ -119,7 +130,7 @@ public class RestauService implements IService<Restau>{
         return list;
     
     }
-
+/*
     @Override
     public List<Restau> readByNom() {
         
@@ -129,7 +140,7 @@ public class RestauService implements IService<Restau>{
             ste=conn.createStatement();
             rs= ste.executeQuery(req);
             while(rs.next()){
-                list1.add(new Restau(rs.getInt("id"), rs.getString("nom"), rs.getString("datef"), rs.getString("local"), rs.getString("image"), rs.getString("descr")));
+                list1.add(new Restau(rs.getInt("id"), rs.getString("nom"), rs.getString("datef"), rs.getString("local"), rs.getString("image"), rs.getString("descr"),rs.getInt("id_cat")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(RestauService.class.getName()).log(Level.SEVERE, null, ex);
@@ -138,7 +149,45 @@ public class RestauService implements IService<Restau>{
         
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    public Restau ChercherCentreParNom(String nom) {
+        List<Restau> l = this.read();
+        for (int i = 0; i < l.size(); i++) {
+            if (l.get(i).getNom().equals(nom)) {
+                return l.get(i);
+            }
+        }
+        return null;
+    }
 
+    @Override
+    public void insert(Restau t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    */
+
+
+    
+    @Override
+    public void update(Restau t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  
+    @Override
+    public List<Restau> readByNom() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
     
     
 }

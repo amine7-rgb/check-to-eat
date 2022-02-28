@@ -19,7 +19,21 @@ public class Restau {
     private String local;
     private String image;
     private String descr;
+//    private Categorie id_cat ; 
+    //categorie 
+    private int id_cat;
 
+    public Restau(int id, String nom, String datef, String local, String image, String descr,int id_cat) {  /*Categorie id_cat*/
+        this.id = id;
+        this.nom = nom;
+        this.datef = datef;
+        this.local = local;
+        this.image = image;
+        this.descr = descr;
+        this.id_cat=id_cat;
+    }
+    
+    
     public Restau(int id, String nom, String datef, String local, String image, String descr) {
         this.id = id;
         this.nom = nom;
@@ -27,8 +41,19 @@ public class Restau {
         this.local = local;
         this.image = image;
         this.descr = descr;
-    }
 
+    }
+  
+    
+    public Restau(String nom, String datef, String local, String image, String descr,int id_cat) { /*Categorie id_cat*/
+    
+        this.nom = nom;
+        this.datef = datef;
+        this.local = local;
+        this.image = image;
+        this.descr = descr;
+        this.id_cat=id_cat;
+    }
     
     public Restau(String nom, String datef, String local, String image, String descr) {
     
@@ -37,7 +62,17 @@ public class Restau {
         this.local = local;
         this.image = image;
         this.descr = descr;
+     
     }
+
+    public Restau() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    
+    
+    
     
     public int getId() {
         return id;
@@ -87,11 +122,31 @@ public class Restau {
         this.descr = descr;
     }
 
+   /* public Categorie getcat() {
+        return id_cat;
+    }
+*/
+    
+      public int getcat() {
+        return id_cat;
+    }
+    
+    
     @Override
     public String toString() {
-        return "restau{" + "id=" + id + ", nom=" + nom + ", datef=" + datef + ", local=" + local + ", image=" + image + ", descr=" + descr + '}';
+        return "Restau{" + "id=" + id + ", nom=" + nom + ", datef=" + datef + ", local=" + local + ", image=" + image + ", descr=" + descr + ", id_cat=" + id_cat + '}';
     }
-
+/*
+    public void setId_cat(Categorie id_cat) {
+        this.id_cat = id_cat;
+    }
+*/
+    
+    public void setId_cat(int id_cat) {
+        this.id_cat = id_cat;
+    }
+    
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -113,6 +168,9 @@ public class Restau {
         if (this.id != other.id) {
             return false;
         }
+        if (this.id_cat != other.id_cat) {
+            return false;
+        }
         if (!Objects.equals(this.nom, other.nom)) {
             return false;
         }
@@ -130,7 +188,8 @@ public class Restau {
         }
         return true;
     }
-    
+
+
     
     
     
