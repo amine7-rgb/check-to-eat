@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="commandefxml.views.FXMLajoutCommandeController">
+    <stylesheets>
+        <URL value="@fxmlajoutcommande.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="titreField" layoutX="162.0" layoutY="166.0" />
+      <TextField fx:id="dateField" layoutX="162.0" layoutY="216.0" />
+      <TextField fx:id="panierFKField" layoutX="162.0" layoutY="261.0" />
+      <Button fx:id="ajoutButton" layoutX="383.0" layoutY="305.0" mnemonicParsing="false" onAction="#ajouterCommande" text="ajouter commande" />
+      <Text layoutX="60.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="titre" />
+      <Text layoutX="30.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="date de commande" />
+      <Text layoutX="48.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="panierFk" />
+   </children>
+</AnchorPane>
