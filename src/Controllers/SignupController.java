@@ -14,6 +14,7 @@ import Services.ServiceUtilisateur;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import java.net.URL;
 
@@ -21,11 +22,18 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ObservableValue;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import static javafx.scene.AccessibleRole.NODE;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -37,7 +45,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 
@@ -170,7 +180,25 @@ ToggleGroup groupGender=new ToggleGroup();
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);
         alert.setContentText("Formateur insérée avec succés!");
-        alert.show();
+        alert.setOnCloseRequest(event -> {     
+                    try {
+                        
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Interfaces/AceuilUser.fxml"));
+                       
+                        Parent root = loader.load();
+                        AcceuilController ac= loader.getController();
+                        ac.setLabel(nom.getText());
+                        
+                        nom.getScene().setRoot(root);
+                
+                 
+                
+                    } catch (Exception ex) {
+                        System.out.println(ex.getMessage());
+                    }
+                
+        });
+        alert.showAndWait();
                 
             } catch (Exception e) {
                 e.printStackTrace();

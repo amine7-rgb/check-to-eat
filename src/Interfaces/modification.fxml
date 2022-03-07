@@ -14,12 +14,12 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" minWidth="-Infinity" prefHeight="433.0" prefWidth="475.0" style="-fx-background-color: #fff;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.InterfaceModifController">
+<AnchorPane id="AnchorPane" minWidth="-Infinity" prefHeight="518.0" prefWidth="449.0" style="-fx-background-color: #fff;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.InterfaceModifController">
     <stylesheets>
         <URL value="@../BrainNovation-GestUser/src/view/interfacemodif.css" />
     </stylesheets>
    <children>
-      <HBox layoutX="-13.0" prefHeight="61.0" prefWidth="489.0" style="-fx-background-color: #3F93C6;">
+      <HBox layoutX="-13.0" prefHeight="61.0" prefWidth="462.0" style="-fx-background-color: #3F93C6;">
          <effect>
             <DropShadow height="31.38" radius="17.0425" width="38.79">
                <color>
@@ -38,14 +38,14 @@
             </Label>
          </children>
       </HBox>
-      <TextField fx:id="txt_nom" layoutX="138.0" layoutY="82.0" prefWidth="200.0" promptText="nom" />
-      <TextField fx:id="txt_prenom" layoutX="138.0" layoutY="119.0" prefWidth="200.0" promptText="prenom" />
-      <TextField fx:id="txt_email" layoutX="138.0" layoutY="268.0" prefWidth="200.0" promptText="email" />
-      <TextField fx:id="txt_genre" layoutX="138.0" layoutY="231.0" prefWidth="200.0" promptText="genre" />
-      <TextField fx:id="txt_num" layoutX="138.0" layoutY="157.0" prefWidth="200.0" promptText="num" />
-      <ComboBox fx:id="type" layoutX="138.0" layoutY="305.0" prefWidth="200.0" promptText="type" />
-      <PasswordField fx:id="txt_mdp" layoutX="138.0" layoutY="194.0" prefHeight="25.0" prefWidth="200.0" promptText="Mot de passe" />
-      <Button layoutX="199.0" layoutY="385.0" mnemonicParsing="false" onAction="#modifier" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #E57A02;" styleClass="button2" stylesheets="@../BrainNovation-GestUser/src/view/style.css" text="Confirmer">
+      <TextField fx:id="txt_nom" layoutX="123.0" layoutY="184.0" prefWidth="200.0" promptText="nom" />
+      <TextField fx:id="txt_prenom" layoutX="123.0" layoutY="219.0" prefWidth="200.0" promptText="prenom" />
+      <TextField fx:id="txt_email" layoutX="124.0" layoutY="363.0" prefWidth="200.0" promptText="email" />
+      <TextField fx:id="txt_genre" layoutX="123.0" layoutY="326.0" prefWidth="200.0" promptText="genre" />
+      <TextField fx:id="txt_num" layoutX="124.0" layoutY="254.0" prefWidth="200.0" promptText="num" />
+      <ComboBox fx:id="type" layoutX="125.0" layoutY="399.0" prefWidth="200.0" promptText="type" />
+      <PasswordField fx:id="txt_mdp" layoutX="123.0" layoutY="289.0" prefHeight="25.0" prefWidth="200.0" promptText="Mot de passe" />
+      <Button layoutX="174.0" layoutY="478.0" mnemonicParsing="false" onAction="#modifier" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #E57A02;" styleClass="button2" stylesheets="@../BrainNovation-GestUser/src/view/style.css" text="Confirmer">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
@@ -56,7 +56,7 @@
          </font>
       </Label>
       <Label fx:id="lid" layoutX="373.0" layoutY="103.0" visible="false" />
-      <Button layoutX="138.0" layoutY="343.0" mnemonicParsing="false" onAction="#onChoseFile" opacity="0.64" prefHeight="31.0" prefWidth="200.0" text="Import Image" />
-      <ImageView fx:id="imageView" fitHeight="85.0" fitWidth="99.0" layoutX="23.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="126.0" layoutY="434.0" mnemonicParsing="false" onAction="#onChoseFile" opacity="0.64" prefHeight="31.0" prefWidth="200.0" text="Import Image" />
+      <ImageView fx:id="imageView" fitHeight="85.0" fitWidth="99.0" layoutX="169.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -23,7 +24,18 @@ import javafx.scene.layout.Pane;
  */
 public class AcceuilController {
    
+    @FXML
+    private BorderPane Bpadmin;
+    @FXML
+    private Label l;
 
 
+public BorderPane getborder(){
+    return Bpadmin;
+}
+
+public void setLabel(String s){
+l.setText(s);
+}
    
 }
