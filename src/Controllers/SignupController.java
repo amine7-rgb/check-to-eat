@@ -8,6 +8,7 @@ package Controllers;
 
 
 import Entities.Utilisateur;
+import Services.ControleSaisie;
 import Services.ServiceUtilisateur;
 
 import java.io.File;
@@ -25,6 +26,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -141,22 +143,40 @@ ToggleGroup groupGender=new ToggleGroup();
     }
     
     public void register(){
-        RadioButton selectedRadioButton = (RadioButton) groupGender.getSelectedToggle();
-            String toogleGroupValue = selectedRadioButton.getText();
-         if(selectedFile != null){
+        
+            
+         
+             if(ControleSaisie.isNull(nom.getText()) || ControleSaisie.isNull(prenom.getText()) || ControleSaisie.isNull(num.getText()) || ControleSaisie.isNull(mdp.getText()) || ControleSaisie.isNull(email.getText()) || ControleSaisie.isNull((String)type.getValue()) || selectedFile == null  )
+           {
+             Alert alerts = new Alert(Alert.AlertType.WARNING);
+        alerts.setTitle("Warning");
+        alerts.setHeaderText(null);
+        alerts.setContentText("Veuillez remplir les champs!");
+        alerts.show();
+           }else {
+             if(ControleSaisie.validemail(email.getText())== false && ControleSaisie.isnum(num.getText())){
+                 email.setText("Veuillez saisir une adresse email valide !");
+             } else if(ControleSaisie.validemail(email.getText()) && selectedFile != null){
+              
             try {
+                RadioButton selectedRadioButton = (RadioButton) groupGender.getSelectedToggle();
+            String toogleGroupValue = selectedRadioButton.getText();
                 Path from = Paths.get(selectedFile.toURI());
                 Path to = Paths.get("C:\\Users\\GhAlone\\Documents\\NetBeansProjects\\MainJavaFX\\src\\Images/"+selectedFile.getName());
                 //Files.copy(from,to);
                 Utilisateur user = new Utilisateur(nom.getText(),prenom.getText(),Integer.parseInt(num.getText()),hashPassword(mdp.getText()),toogleGroupValue, email.getText(),(String) type.getValue(), to.normalize().toString());
                 us.inscrir(user);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("Formateur insérée avec succés!");
+        alert.show();
                 
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else{
-            System.out.println("file is null");
-        }
+            }
+         }
          
     }
     

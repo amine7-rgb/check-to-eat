@@ -8,6 +8,7 @@ package Controllers;
 import Entities.Utilisateur;
 import Services.ServiceAdmin;
 import Services.ServiceUtilisateur;
+import java.io.FileInputStream;
 import java.io.IOException;
 import static java.lang.String.valueOf;
 import java.net.URL;
@@ -21,6 +22,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -28,6 +30,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -71,8 +75,7 @@ public class UserController implements Initializable {
     @FXML
     private Button btn_supp;
 
-    @FXML
-    private Button btn_modif;
+    
 
     @FXML
     private TextField txt_search;
@@ -142,26 +145,24 @@ public class UserController implements Initializable {
     }
     
     
-    @FXML
+   @FXML
     void click(ActionEvent event) {
-        Utilisateur person = apprenants.getSelectionModel().getSelectedItem();
-                System.out.println(person);
                        try {
+                           Utilisateur person = apprenants.getSelectionModel().getSelectedItem();
+                System.out.println(person);
                 FXMLLoader loader =new FXMLLoader(getClass().getResource("/Interfaces/modification.fxml"));  
                 Parent root = loader.load();
                 InterfaceModifController c = loader.getController();
-                c.setnom(person.getNom());
-                c.setprenom(person.getPrenom());
-//              c.setnum(String.valueOf(person.getNum_tel()));
-                c.setpasse(person.getMot_pass());
-                c.setgenre(person.getGenre());
-                c.setemail(person.getAdress_email());
-                c.setId(valueOf(person.getId()));
+                Image image = new Image(new FileInputStream(person.getImage()));
+                c.setuser(person);
+                c.getim().setImage(image);
                 
-                 Stage mainStage = new Stage();
                 Scene scene = new Scene(root);
-                mainStage.setScene(scene);
-                mainStage.show();
+               // Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+               Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.setTitle("modifier");
+                stage.show();
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
@@ -172,6 +173,11 @@ public class UserController implements Initializable {
     void delete(ActionEvent event) {
         Utilisateur person = apprenants.getSelectionModel().getSelectedItem();
         admin.delete(person);
+    }
+    
+    @FXML
+    void reload(MouseEvent event) {
+        apprenants.setItems(user.afficher());
     }
     
     

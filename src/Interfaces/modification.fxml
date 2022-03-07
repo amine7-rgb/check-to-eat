@@ -45,7 +45,7 @@
       <TextField fx:id="txt_num" layoutX="138.0" layoutY="157.0" prefWidth="200.0" promptText="num" />
       <ComboBox fx:id="type" layoutX="138.0" layoutY="305.0" prefWidth="200.0" promptText="type" />
       <PasswordField fx:id="txt_mdp" layoutX="138.0" layoutY="194.0" prefHeight="25.0" prefWidth="200.0" promptText="Mot de passe" />
-      <Button fx:id="bt_modif" layoutX="199.0" layoutY="385.0" mnemonicParsing="false" onAction="#modifier" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #E57A02;" styleClass="button2" stylesheets="@../BrainNovation-GestUser/src/view/style.css" text="Confirmer">
+      <Button layoutX="199.0" layoutY="385.0" mnemonicParsing="false" onAction="#modifier" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #E57A02;" styleClass="button2" stylesheets="@../BrainNovation-GestUser/src/view/style.css" text="Confirmer">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
@@ -55,8 +55,8 @@
             <Font name="Tahoma Bold" size="19.0" />
          </font>
       </Label>
-      <Label fx:id="lid" layoutX="373.0" layoutY="103.0" />
-      <Button layoutX="138.0" layoutY="343.0" mnemonicParsing="false" opacity="0.64" prefHeight="31.0" prefWidth="200.0" text="Import Image" />
+      <Label fx:id="lid" layoutX="373.0" layoutY="103.0" visible="false" />
+      <Button layoutX="138.0" layoutY="343.0" mnemonicParsing="false" onAction="#onChoseFile" opacity="0.64" prefHeight="31.0" prefWidth="200.0" text="Import Image" />
       <ImageView fx:id="imageView" fitHeight="85.0" fitWidth="99.0" layoutX="23.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

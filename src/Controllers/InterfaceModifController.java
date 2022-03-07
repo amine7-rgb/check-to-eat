@@ -4,6 +4,9 @@ import Entities.Utilisateur;
 import Services.ServiceAdmin;
 import Services.ServiceUtilisateur;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import static java.lang.String.valueOf;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,7 +21,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import utils.DataSource;
 
 
@@ -66,11 +71,12 @@ public class InterfaceModifController implements Initializable{
 
     @FXML
     private ImageView imageView;
+    
+    
+    
+    
 
-    @FXML
-    void modifier(ActionEvent event) {
-
-    }
+    
 
         private File selectedFile;
 
@@ -78,36 +84,55 @@ public class InterfaceModifController implements Initializable{
     ServiceUtilisateur userser = new ServiceUtilisateur();
 
     
-    public void setnom(String n){
-    txt_nom.setText(n);
-    }
-
-
-    public void setprenom(String p) {
-    txt_prenom.setText(p);
-    }
-    
-    public void setnum(String k) {
-    txt_num.setText(k);     
-    }
-
-    public void setpasse(String s) {
-    txt_mdp.setText(s);    }
-
-
-    public void setgenre(String g) {
-    txt_genre.setText(g);    }
-
-  
-
-    public void setemail(String h) {
-    txt_email.setText(h);    }
-
+   
   
     
-    public void setId(String m) {
-    lid.setText(m);
+    
+    
+    public void setuser(Utilisateur user){
+    txt_nom.setText(user.getNom());
+    txt_prenom.setText(user.getPrenom());
+    txt_genre.setText(user.getGenre());
+    txt_email.setText(user.getAdress_email());
+    lid.setText(valueOf(user.getId()));
+    
     }
+    
+    public ImageView getim(){
+    return imageView;
+    }
+    
+    @FXML
+     public void onChoseFile(ActionEvent event){
+        FileChooser fc = new FileChooser();
+        selectedFile = fc.showOpenDialog(null);
+        if (selectedFile != null){
+            try {
+                Image image = new Image(new FileInputStream(selectedFile));
+                imageView.setImage(image);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }else{
+            System.out.println("Hey");
+        }
+    }
+     
+     
+     @FXML
+    void modifier(ActionEvent event) {
+        Path from = Paths.get(selectedFile.toURI());
+                Path to = Paths.get("C:\\Users\\GhAlone\\Documents\\NetBeansProjects\\MainJavaFX\\src\\Images/"+selectedFile.getName());
+        Utilisateur upuser = new Utilisateur(Integer.parseInt(lid.getText()), txt_nom.getText(), txt_prenom.getText(), Integer.parseInt(txt_num.getText()), txt_mdp.getText(), txt_genre.getText(), txt_email.getText(), type.getValue().toString(), to.normalize().toString());
+        userser.modifier(upuser);
+         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("modification avec succés!");
+        alert.show();
+    }
+    
+    
     
 
     @Override
@@ -115,25 +140,7 @@ public class InterfaceModifController implements Initializable{
    type.getItems().addAll("Admin","user","partenaire");
         System.out.println(lid.getText());
     
-  
-        
-    bt_modif.setOnAction(event -> {
-
-            Path from = Paths.get(selectedFile.toURI());
-                Path to = Paths.get("C:\\Users\\GhAlone\\Documents\\NetBeansProjects\\MainJavaFX\\src\\Images/"+selectedFile.getName());
-                //Files.copy(from,to);
-                Utilisateur user = new Utilisateur(txt_nom.getText(),txt_prenom.getText(),Integer.parseInt(txt_num.getText()),txt_mdp.getText(), (String) type.getValue(), txt_email.getText(),txt_genre.getText(), to.normalize().toString());
-                userser.modifier(user);
-           DataSource fdao = DataSource.getInstance();
-            
-            
-            
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText(null);
-            alert.setContentText("Formateur modifiée avec succés!");
-            alert.show();
-        });
+    
         
     } }
 

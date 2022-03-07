@@ -57,7 +57,7 @@
                                  </light>
                               </Lighting>
                            </effect></Button>
-                        <Button fx:id="btn_modif" layoutX="463.0" layoutY="451.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#click" prefHeight="31.0" prefWidth="95.0" style="-fx-background-color: #3F93C6;" text="Modifier" textFill="#220808" textOverrun="CENTER_ELLIPSIS">
+                        <Button layoutX="463.0" layoutY="451.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#click" prefHeight="31.0" prefWidth="95.0" style="-fx-background-color: #3F93C6;" text="Modifier" textFill="#220808" textOverrun="CENTER_ELLIPSIS">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
@@ -80,7 +80,7 @@
                               <Blend />
                            </effect>
                         </Label>
-                        <ImageView fitHeight="61.0" fitWidth="49.0" layoutX="65.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="61.0" fitWidth="49.0" layoutX="65.0" layoutY="29.0" onMouseClicked="#reload" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Images/reload.png" />
                            </image>

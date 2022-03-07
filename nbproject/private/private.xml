@@ -8,6 +8,7 @@
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/DataValidation.java</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Interfaces/Acceuil.fxml</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/AcceuilController.java</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Services/ControleSaisie.java</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Interfaces/modification.fxml</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Interfaces/modifierUsers.fxml</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/UserController.java</file>
@@ -17,6 +18,7 @@
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Entities/Utilisateur.java</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/Admincontroller.java</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/PasseController.java</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Services/ServiceAdmin.java</file>
         </group>
     </open-files>
 </project-private>
