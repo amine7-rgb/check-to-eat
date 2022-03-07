@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import utils.Datasource;
 import java.lang.String;
 import java.util.*;
+import javafx.collections.FXCollections;
 
 
 /**
@@ -167,6 +168,110 @@ public class CatService implements IService<Categorie>{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    
+       Categorie readd(int id) {
+   String req="select * from categorie where id=?";
+        Categorie r=null;
+        try {
+            pst=conn.prepareStatement(req);
+            pst.setInt(1,id);
+            ResultSet resultSet = pst.executeQuery();
+             if (resultSet.next()) {              
+                    r = new Categorie(resultSet.getInt(1),resultSet.getString(2)
+                          );
+                }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+           
+        return r;  }
+
+       
+       
+       
+       
+       
+    
+       public List<Categorie> tries(String s) {
+
+                  String req="SELECT * FROM `categorie` ORDER BY `type`.`"+s+"` ASC"; //  SELECT *FROM client FULL JOIN login ON client.id_client = login.id_user 
+                    List<Categorie> list=new ArrayList<>();
+        try {
+            ste=conn.createStatement();
+            rs= ste.executeQuery(req);
+            while(rs.next()){
+                list.add(new Categorie(rs.getInt("id"),rs.getString("type")));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return list;
+    }
+    
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+    /*
+    
+      Categorie affichera(){
+        
+        Categorie c = new Categorie();
+                String req="select *from categorie where type =?";
+       
+       Categorie cv;
+       int a;
+       try{
+           pst=conn.prepareStatement(req);
+           pst.setString(1,type);
+           rs=pst.executeQuery();
+           if (rs.next()) {              
+              cv = new Categorie(rs.getInt(1),rs.getString(2)
+                          );
+                }
+           
+          
+       }
+         catch (Exception ex){
+                 
+                     System.out.println(ex.getMessage());
+         }
+           return  cv;
+    }
+    */
+    
+    
+       
+        public List<Categorie> chercher(String s) {
+        
+                  String req="select * from categorie WHERE type=%'"+s+"'% "; //  SELECT *FROM client FULL JOIN login ON client.id_client = login.id_user 
+                    List<Categorie> list=new ArrayList<>();
+        try {
+            ste=conn.createStatement();
+            rs= ste.executeQuery(req);
+            while(rs.next()){
+                list.add(new Categorie(rs.getInt("id"),rs.getString("type")));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return list;
+    }
+ 
+       
+       
+       
+       
+       
+       
+    
     /*
     
     public List<Categorie> afficherPDF() {
@@ -202,6 +307,7 @@ public class CatService implements IService<Categorie>{
     */
     
     public Categorie ChercherCentreParType(String type) {
+        
         List<Categorie> l = this.read();
         for (int i = 0; i < l.size(); i++) {
             if (l.get(i).getType().equals(type)) {

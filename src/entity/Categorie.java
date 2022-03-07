@@ -15,7 +15,8 @@ public class Categorie {
     private String type;
 
     public Categorie()
-    {}
+    {
+    }
     
     
     public Categorie(int id, String type) {
@@ -53,7 +54,7 @@ public class Categorie {
 
     @Override
     public String toString() {
-        return "Categorie{" + "id=" + id + ", type=" + type + '}';
+        return this.type;
     }
 
     @Override

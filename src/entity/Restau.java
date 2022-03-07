@@ -6,6 +6,10 @@
 package entity;
 
 import java.util.Objects;
+import entity.Categorie;
+import java.sql.Date;
+import java.util.logging.Logger;
+import marytts.cart.CART;
 
 /**
  *
@@ -19,33 +23,102 @@ public class Restau {
     private String local;
     private String image;
     private String descr;
-//    private Categorie id_cat ; 
-    //categorie 
-    private int id_cat;
+    private Categorie id_cat ; 
+    private int id_us;
+   // private String cat;
 
-    public Restau(int id, String nom, String datef, String local, String image, String descr,int id_cat) {  /*Categorie id_cat*/
+    /*public Restau(int id, String nom, String datef, String local, String image, String descr, String cat) {
         this.id = id;
         this.nom = nom;
         this.datef = datef;
         this.local = local;
         this.image = image;
         this.descr = descr;
-        this.id_cat=id_cat;
+        this.cat = cat;
     }
-    
-    
-    public Restau(int id, String nom, String datef, String local, String image, String descr) {
+   */
+
+    public Restau(int id) {
         this.id = id;
+    }
+
+    public int getId_us() {
+        return id_us;
+    }
+
+    public void setId_us(int id_us) {
+        this.id_us = id_us;
+    }
+
+    public Restau(String nom, String datef, String local, String image, String descr, Categorie id_cat, int id_us) {
         this.nom = nom;
         this.datef = datef;
         this.local = local;
         this.image = image;
         this.descr = descr;
+        this.id_cat = id_cat;
+        this.id_us = id_us;
+    }
 
+    
+     //this.id_cat.setId(id_cat);
+    
+//    public Restau(int id, String nom, String datef, String local, String image, String descr) {
+//        this.id = id;
+//        this.nom = nom;
+//        this.datef = datef;
+//        this.local = local;
+//        this.image = image;
+//        this.descr = descr;
+//
+//    }
+
+    public Restau(String nom, String datef, String local, String image, String descr) {
+        this.nom = nom;
+        this.datef = datef;
+        this.local = local;
+        this.image = image;
+        this.descr = descr;
     }
   
     
-    public Restau(String nom, String datef, String local, String image, String descr,int id_cat) { /*Categorie id_cat*/
+    
+    
+//    public Restau(String nom, String datef, String local, String image, String descr, String id_cat) { /*Categorie id_cat*/
+//    
+//        this.nom = nom;
+//        this.datef = datef;
+//        this.local = local;
+//        this.image = image;
+//        this.descr = descr;
+//        this.id_cat.setType(id_cat);
+//        //this.id_cat.setId(id_cat);
+//    }
+
+    public Restau(String nom, String local, String descr, Categorie id_cat) {
+        this.nom = nom;
+        this.local = local;
+        this.descr = descr;
+        this.id_cat = id_cat;
+    }
+
+    public Restau(int id, String nom, String datef, String local, String image, String descr, Categorie id_cat) {
+        this.id = id;
+        this.nom = nom;
+        this.datef = datef;
+        this.local = local;
+        this.image = image;
+        this.descr = descr;
+        this.id_cat = id_cat;
+    }
+    
+    
+    
+    
+    
+    
+    
+    public Restau(String nom, String datef, String local, String image, String descr, Categorie id_cat) { /*Categorie id_cat*/
     
         this.nom = nom;
         this.datef = datef;
@@ -53,23 +126,24 @@ public class Restau {
         this.image = image;
         this.descr = descr;
         this.id_cat=id_cat;
+        //this.id_cat.setId(id_cat);
     }
     
-    public Restau(String nom, String datef, String local, String image, String descr) {
-    
-        this.nom = nom;
-        this.datef = datef;
-        this.local = local;
-        this.image = image;
-        this.descr = descr;
-     
-    }
+//    public Restau(String nom, String datef, String local, String image, String descr) {
+//    
+//        this.nom = nom;
+//        this.datef = datef;
+//        this.local = local;
+//        this.image = image;
+//        this.descr = descr;
+//     
+//    }
+
 
     public Restau() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
     }
-    
-    
+
     
     
     
@@ -97,6 +171,7 @@ public class Restau {
     public void setDatef(String datef) {
         this.datef = datef;
     }
+
 
     public String getLocal() {
         return local;
@@ -127,24 +202,25 @@ public class Restau {
     }
 */
     
-      public int getcat() {
+      public Categorie getcat() {
         return id_cat;
     }
     
-    
+    public void setId_cat(Categorie id_cat) {
+        this.id_cat = id_cat;
+    }
+
     @Override
     public String toString() {
         return "Restau{" + "id=" + id + ", nom=" + nom + ", datef=" + datef + ", local=" + local + ", image=" + image + ", descr=" + descr + ", id_cat=" + id_cat + '}';
     }
+
+    
 /*
     public void setId_cat(Categorie id_cat) {
         this.id_cat = id_cat;
     }
 */
-    
-    public void setId_cat(int id_cat) {
-        this.id_cat = id_cat;
-    }
     
     
     @Override
@@ -168,7 +244,7 @@ public class Restau {
         if (this.id != other.id) {
             return false;
         }
-        if (this.id_cat != other.id_cat) {
+        if (this.id_us != other.id_us) {
             return false;
         }
         if (!Objects.equals(this.nom, other.nom)) {
@@ -186,9 +262,18 @@ public class Restau {
         if (!Objects.equals(this.descr, other.descr)) {
             return false;
         }
+        if (!Objects.equals(this.id_cat, other.id_cat)) {
+            return false;
+        }
         return true;
     }
 
+    public Restau(String nom, String datef, String local, String descr) {
+        this.nom = nom;
+        this.datef = datef;
+        this.local = local;
+        this.descr = descr;
+    }
 
     
     

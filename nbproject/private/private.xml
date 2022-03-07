@@ -3,18 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/gui/categorie.fxml</file>
-            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/entity/Categorie.java</file>
-            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/gpartenaire/Gpartenaire.java</file>
-            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/service/CatService.java</file>
-            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/gui/FXMLController.java</file>
-            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/service/RestauService.java</file>
-            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/gui/CategorieController.java</file>
-            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/entity/Restau.java</file>
-            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/gui/PartenaireController.java</file>
-            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/gui/NewFXMain.java</file>
-            <file>file:/C:/Users/amed1/Desktop/javafX/gpartenaire/src/utils/Datasource.java</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/service/RestauService.java</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/image/ammmm.png</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/utils/Datasource.java</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/service/CatService.java</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/entity/Restau.java</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/service/Service_mail.java</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/image/tri.jpg</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/gui/NewFXMain.java</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/gpartenaire/Gpartenaire.java</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/entity/Categorie.java</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/service/SoundClick.java</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/service/SMS.java</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/gui/Plus_detailleController.java</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/service/Service_generer_Qr_code.java</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/image/mouh.jpg</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/gui/CategorieController.java</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/gui/PartenaireController.java</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/image/bg.jpg</file>
+            <file>file:/C:/Users/amed1/Desktop/aaaaprojet/check-to-eat/src/gui/pdf.java</file>
         </group>
     </open-files>
 </project-private>

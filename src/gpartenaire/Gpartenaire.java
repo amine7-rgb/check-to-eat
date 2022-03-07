@@ -34,12 +34,14 @@ public class Gpartenaire {
         //Datasource ds2=Datasource.getInstance();
      // System.out.println(ds2);
 
-       Categorie c1 =new Categorie("ammmmmmm");  
+       Categorie c1 =new Categorie("g");  
        CatService cs = new CatService();
         
       cs.insert(c1);
        System.out.println(cs.read());
-      // c1=cs.readid("ammmmmmm");
+       c1=cs.readid("amine");
+        System.out.println(cs.ChercherCentreParType("a")); 
+       
        //System.out.println(c1);
        //cs.supprimer(57);
        //cs.delete(c1);
@@ -47,18 +49,17 @@ public class Gpartenaire {
       ////  System.out.println(cs.read());
        //System.out.println(c1);
        //System.out.println(cs.read());
-         
-       
-     
+       //  Categorie  m =new Categorie();
+       //int a =m.getId();
+      //  System.out.println(a);
+     Restau p =new Restau("gg", "8888", "g", "g", "g",c1);
+    //  Restau p1=new Restau("amie","rr","a","a","a",69); 6
+   RestauService ps=new RestauService();
+     ps.insert(p);
       
-     // Restau p1=new Restau("amine","rr","a","a","a",c1); 
-      Restau p1=new Restau("amie","rr","a","a","a",65); 
-      RestauService ps=new RestauService();
-     ps.insert(p1);
-      
-      //ps.delete(p1);
-     System.out.println(ps.read());
-    
+      //ps.delete(p);
+   System.out.println(ps.read());
+        
      
       // ps.update(p1);
      

@@ -5,39 +5,24 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="520.0" prefWidth="848.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CategorieController">
+<AnchorPane id="AnchorPane" prefHeight="677.0" prefWidth="966.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CategorieController">
    <children>
-      <Label layoutX="163.0" layoutY="122.0" prefHeight="21.0" prefWidth="95.0" text="type">
+      <Label layoutX="20.0" layoutY="287.0" prefHeight="21.0" prefWidth="95.0" text="type:" textFill="#05a8eb">
          <font>
             <Font size="24.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="0.970873786407767" endY="0.7864077669902912" startX="0.8009708737864077" startY="0.22330097087378642">
-               <stops>
-                  <Stop color="#3c00ff" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill></Label>
-      <JFXButton buttonType="RAISED" contentDisplay="TEXT_ONLY" graphicTextGap="8.0" layoutX="424.0" layoutY="335.0" onAction="#submit" ripplerFill="#8f8f8f" text="ajouter" textAlignment="CENTER" textOverrun="LEADING_WORD_ELLIPSIS">
+         </font></Label>
+      <JFXButton contentDisplay="TEXT_ONLY" graphicTextGap="8.0" layoutX="332.0" layoutY="520.0" onAction="#submit" prefHeight="39.0" prefWidth="131.0" ripplerFill="#d3c7c7" style="-fx-background-color: #3F93C6;" text="ajouter" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
          <font>
-            <Font size="24.0" />
-         </font>
-         <textFill>
-            <RadialGradient centerX="0.40340909090909094" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="#ff0b0b" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </textFill></JFXButton>
-      <TableView fx:id="table" cache="true" layoutX="548.0" layoutY="41.0" onMouseClicked="#go_table" prefHeight="200.0" prefWidth="266.0" AnchorPane.topAnchor="41.0">
+            <Font name="Arial Black" size="18.0" />
+         </font></JFXButton>
+      <TableView fx:id="table" cache="true" layoutX="396.0" layoutY="133.0" onMouseClicked="#go_table" prefHeight="319.0" prefWidth="507.0" AnchorPane.topAnchor="133.0">
         <columns>
           <TableColumn fx:id="c1" prefWidth="75.0" text="id" />
           <TableColumn fx:id="c2" prefWidth="75.0" text="type" />
@@ -46,7 +31,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <JFXTextField fx:id="txt2" layoutX="235.0" layoutY="117.0">
+      <JFXTextField fx:id="txt2" layoutX="105.0" layoutY="289.0" prefHeight="31.0" prefWidth="176.0">
          <unFocusColor>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -55,31 +40,32 @@
                </stops>
             </LinearGradient>
          </unFocusColor></JFXTextField>
-      <JFXButton layoutX="540.0" layoutY="330.0" onAction="#delete" prefHeight="61.0" prefWidth="152.0" text="supprimer">
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="#ff0b0b" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill>
+      <JFXButton layoutX="634.0" layoutY="520.0" onAction="#delete" prefHeight="39.0" prefWidth="131.0" ripplerFill="BLACK" style="-fx-background-color: #3F93C6;" text="supprimer">
          <font>
-            <Font size="24.0" />
+            <Font name="Arial Black" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="677.0" layoutY="335.0" onAction="#update" prefHeight="51.0" prefWidth="137.0" text="modifier">
-         <textFill>
-            <RadialGradient centerX="0.4943181818181819" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="#ff0b0b" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </textFill>
+      <JFXButton layoutX="483.0" layoutY="520.0" onAction="#update" prefHeight="39.0" prefWidth="131.0" style="-fx-background-color: #3F93C6;" text="modifier">
          <font>
-            <Font size="24.0" />
+            <Font name="Arial Black" size="18.0" />
          </font>
       </JFXButton>
+      <Label layoutX="20.0" layoutY="57.0" prefHeight="53.0" prefWidth="364.0" text="Liste des Catégories" textFill="#05a8eb">
+         <font>
+            <Font name="Tahoma" size="36.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rech" layoutX="419.0" layoutY="68.0" onKeyPressed="#ChercherCentreParType" prefHeight="31.0" prefWidth="492.0" />
+      <JFXButton fx:id="tri" contentDisplay="CENTER" layoutX="789.0" layoutY="523.0" onAction="#tri" prefHeight="10.0" prefWidth="107.0" style="-fx-background-color: #3F93C6;" text="tri">
+         <font>
+            <Font name="Arial Black" size="15.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="br" layoutX="682.0" layoutY="14.0" onAction="#go" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: red;" text="go to Restau">
+         <font>
+            <Font name="Berlin Sans FB" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="exit" layoutX="838.0" layoutY="11.0" onAction="#close" prefHeight="31.0" prefWidth="95.0" style="-fx-background-color: red;" text="exit" />
+      <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" layoutX="47.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
