@@ -66,6 +66,10 @@ public class Utilisateur {
         this.image = image;
     }
 
+    public Utilisateur(String text, String text0, String text1, String text2, String hashPassword, String toString) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId() {
         return id;
     }

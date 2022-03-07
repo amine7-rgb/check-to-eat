@@ -72,7 +72,7 @@
                               </Lighting>
                            </effect>
                         </Button>
-                        <Label contentDisplay="CENTER" layoutX="101.0" layoutY="32.0" text="Listes des Utilisateurs" textFill="#ee7f03">
+                        <Label contentDisplay="CENTER" layoutX="123.0" layoutY="35.0" text="Listes des Utilisateurs" textFill="#ee7f03">
                            <font>
                               <Font name="Tahoma" size="32.0" />
                            </font>
@@ -80,16 +80,21 @@
                               <Blend />
                            </effect>
                         </Label>
-                        <ImageView fitHeight="63.0" fitWidth="54.0" layoutX="38.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="61.0" fitWidth="49.0" layoutX="65.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../Desktop/scenebuilder/list.png" />
+                              <Image url="@../Images/reload.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="63.0" fitWidth="54.0" layoutX="11.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/list.png" />
                            </image>
                         </ImageView>
                         <HBox layoutX="458.0" layoutY="39.0" prefHeight="30.0" prefWidth="276.0" style="-fx-background-color: #fff;">
                            <children>
                               <ImageView fitHeight="32.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../Desktop/scenebuilder/recherche.png" />
+                                    <Image url="@../Images/recherche.png" />
                                  </image>
                               </ImageView>
                               <TextField fx:id="txt_search" prefHeight="30.0" prefWidth="257.0" promptText="Rechercher" />

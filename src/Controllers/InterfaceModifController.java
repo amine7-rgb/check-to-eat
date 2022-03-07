@@ -3,16 +3,24 @@ package Controllers;
 import Entities.Utilisateur;
 import Services.ServiceAdmin;
 import Services.ServiceUtilisateur;
+import java.io.File;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import utils.DataSource;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -38,12 +46,11 @@ public class InterfaceModifController implements Initializable{
     @FXML
     private TextField txt_genre;
 
-        
-    private TextField num;
-        @FXML
-    private ComboBox<String> cb_cinteret;
+    @FXML
+    private TextField txt_num;
 
-   
+    @FXML
+    private ComboBox type;
 
     @FXML
     private PasswordField txt_mdp;
@@ -55,11 +62,18 @@ public class InterfaceModifController implements Initializable{
     private Label id_lab;
 
     @FXML
-    private TextField image;
-    
-    @FXML
     private Label lid;
-    
+
+    @FXML
+    private ImageView imageView;
+
+    @FXML
+    void modifier(ActionEvent event) {
+
+    }
+
+        private File selectedFile;
+
     ServiceAdmin admin = new ServiceAdmin();
     ServiceUtilisateur userser = new ServiceUtilisateur();
 
@@ -74,7 +88,7 @@ public class InterfaceModifController implements Initializable{
     }
     
     public void setnum(String k) {
-    num.setText(k);     
+    txt_num.setText(k);     
     }
 
     public void setpasse(String s) {
@@ -90,12 +104,6 @@ public class InterfaceModifController implements Initializable{
     txt_email.setText(h);    }
 
   
-
-
-
-    public void setimage(String m) {
-    image.setText(m);
-    }
     
     public void setId(String m) {
     lid.setText(m);
@@ -104,19 +112,33 @@ public class InterfaceModifController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-   cb_cinteret.getItems().addAll("Admin","user","partenaire");
+   type.getItems().addAll("Admin","user","partenaire");
         System.out.println(lid.getText());
-    }
     
-    @FXML
-    void modifier(ActionEvent event) {
-        int nu = Integer.parseInt(num.getText());
-        System.out.println(nu);
-        Utilisateur user = new Utilisateur(Integer.parseInt(lid.getText()), txt_nom.getText(), txt_prenom.getText(), nu, txt_mdp.getText(), txt_genre.getText(), txt_email.getText(), cb_cinteret.getValue(), image.getText());
-        userser.modifier(user);
-    }
-    
+  
+        
+    bt_modif.setOnAction(event -> {
+
+            Path from = Paths.get(selectedFile.toURI());
+                Path to = Paths.get("C:\\Users\\GhAlone\\Documents\\NetBeansProjects\\MainJavaFX\\src\\Images/"+selectedFile.getName());
+                //Files.copy(from,to);
+                Utilisateur user = new Utilisateur(txt_nom.getText(),txt_prenom.getText(),Integer.parseInt(txt_num.getText()),txt_mdp.getText(), (String) type.getValue(), txt_email.getText(),txt_genre.getText(), to.normalize().toString());
+                userser.modifier(user);
+           DataSource fdao = DataSource.getInstance();
+            
+            
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Formateur modifiée avec succés!");
+            alert.show();
+        });
+        
+    } }
+
+               
 
 
    
-}
+

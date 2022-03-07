@@ -28,6 +28,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
@@ -75,6 +76,8 @@ public class UserController implements Initializable {
 
     @FXML
     private TextField txt_search;
+    
+     
     
     ServiceUtilisateur user = new ServiceUtilisateur();
     ServiceAdmin admin = new ServiceAdmin();
@@ -149,11 +152,10 @@ public class UserController implements Initializable {
                 InterfaceModifController c = loader.getController();
                 c.setnom(person.getNom());
                 c.setprenom(person.getPrenom());
-//                c.setnum(String.valueOf(person.getNum_tel()));
+//              c.setnum(String.valueOf(person.getNum_tel()));
                 c.setpasse(person.getMot_pass());
                 c.setgenre(person.getGenre());
                 c.setemail(person.getAdress_email());
-                c.setimage(person.getImage());
                 c.setId(valueOf(person.getId()));
                 
                  Stage mainStage = new Stage();
@@ -171,5 +173,7 @@ public class UserController implements Initializable {
         Utilisateur person = apprenants.getSelectionModel().getSelectedItem();
         admin.delete(person);
     }
+    
+    
     
 }

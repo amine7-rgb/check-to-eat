@@ -36,6 +36,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 
 /**
@@ -84,15 +85,15 @@ public class SigninController implements Initializable{
     private void Login (ActionEvent event) throws Exception{   
         conn= mysqlconnect.ConnectDb();
         String ch;
-        String sql = "Select * from utilisateur where adress_email = ? and mot_pass = ? and role = ?";    
+        String sql = "Select * from utilisateur where adress_email = ?  and role = ?";    
         try{
             pst = conn.prepareStatement(sql);
             pst.setString(1, email.getText());
-            pst.setString(2, ppasse.getText());
-            pst.setString(3, type.getValue().toString());
+            
+            pst.setString(2, type.getValue().toString());
             rs = pst.executeQuery();
             
-            if(rs.next()){
+            if(rs.next() && BCrypt.checkpw(ppasse.getText(), rs.getString("mot_pass"))){
                 JOptionPane.showMessageDialog(null, "Usermane and Password is Correct");        
                 if(type.getValue().equals("Admin")){
                 Parent root =FXMLLoader.load(getClass().getResource("/Interfaces/Acceuil.fxml"));    

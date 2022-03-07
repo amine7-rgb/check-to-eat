@@ -6,16 +6,21 @@
 package Controllers;
 
 
+
+import Entities.Utilisateur;
+import Services.ServiceUtilisateur;
+
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.FileNotFoundException;
+
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import java.util.ResourceBundle;
+import javafx.beans.value.ObservableValue;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,8 +32,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javax.swing.JOptionPane;
+import javafx.stage.FileChooser;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
+
 
 
 /**
@@ -36,8 +46,8 @@ import javax.swing.JOptionPane;
  * @author GhAlone
  */
 public class SignupController implements Initializable{
-      
-  @FXML
+    
+   @FXML
     private TextField num;
 
     @FXML
@@ -71,55 +81,87 @@ public class SignupController implements Initializable{
     private TextField email;
 
     @FXML
-    private ImageView image;
-
-    @FXML
     private PasswordField mdp;
 
     @FXML
     private RadioButton Female;
 
     @FXML
-    private RadioButton man;
+    private RadioButton Male;
 
-    @FXML
-    private Button btimg;
-    String s;   
-    @FXML
-    void add_users(ActionEvent event) {
-
-    }
-    Connection conn = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
     
-    public void actionPerformed(ActionEvent e){
-        try{
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pi","root","");
-            String req="insert into utilisateur(nom,prenom,num_tel,mot_pass,genre,adress_email,role,image)values(?,?,?,?,?,?,?,?)";
-            PreparedStatement pst= conn.prepareStatement(req);
-            InputStream is= new FileInputStream(new File(s));
-            pst.setString(1,nom.getText());   
-            pst.setString(2,prenom.getText());   
-            pst.setString(3,num.getText());   
-            pst.setString(4,mdp.getText());   
-            pst.setString(5,nom.getText());   
-            pst.setString(7,type.getValue().toString());
-            pst.setString(7,nom.getText());   
-            pst.setString(8,nom.getText());   
-            pst.executeQuery();
-            JOptionPane.showMessageDialog(null, "saved");
-        }catch(Exception ex){
-            ex.printStackTrace();
-                
-        }
-    }   
+    @FXML
+    private ImageView imageView;
 
+    @FXML
+    private Label img;
+    
+    private File selectedFile;
+     
+ToggleGroup groupGender=new ToggleGroup();
+    ServiceUtilisateur us= new ServiceUtilisateur();
 
-   
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         type.getItems().addAll("user","partenaire");
+         
+        Male.setToggleGroup(groupGender);
+        Female.setToggleGroup(groupGender);
+        txt_mdp.setVisible(false);
+       check.selectedProperty().addListener((ObservableValue<? extends Boolean> ov, Boolean old_value, Boolean newValue) -> {
+       if(check.isSelected()){
+           txt_mdp.setText(mdp.getText());
+           txt_mdp.setVisible(true);
+           mdp.setVisible(false);
+           return;
+           
+       }
+      mdp.setText(txt_mdp.getText());
+       mdp.setVisible(true);
+       txt_mdp.setVisible(false);
+       
+       });
     }
+    
+    @FXML
+    public void onChoseFile(ActionEvent event){
+        FileChooser fc = new FileChooser();
+        selectedFile = fc.showOpenDialog(null);
+        if (selectedFile != null){
+            try {
+                Image image = new Image(new FileInputStream(selectedFile));
+                imageView.setImage(image);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }else{
+            System.out.println("Hey");
+        }
+    }
+    
+    public void register(){
+        RadioButton selectedRadioButton = (RadioButton) groupGender.getSelectedToggle();
+            String toogleGroupValue = selectedRadioButton.getText();
+         if(selectedFile != null){
+            try {
+                Path from = Paths.get(selectedFile.toURI());
+                Path to = Paths.get("C:\\Users\\GhAlone\\Documents\\NetBeansProjects\\MainJavaFX\\src\\Images/"+selectedFile.getName());
+                //Files.copy(from,to);
+                Utilisateur user = new Utilisateur(nom.getText(),prenom.getText(),Integer.parseInt(num.getText()),hashPassword(mdp.getText()),toogleGroupValue, email.getText(),(String) type.getValue(), to.normalize().toString());
+                us.inscrir(user);
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }else{
+            System.out.println("file is null");
+        }
+         
+    }
+    
+    private static String hashPassword(String txtpassword){
+    return BCrypt.hashpw(txtpassword, BCrypt.gensalt());
+    
+}   //
 }

@@ -3,10 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Utils/JavaMailUtil.java</file>
-            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/ChangerPasseController.java</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Interfaces/MainJavaFX.java</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/SignupController.java</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/DataValidation.java</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Interfaces/Acceuil.fxml</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/AcceuilController.java</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Interfaces/modification.fxml</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Interfaces/modifierUsers.fxml</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/UserController.java</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/InterfaceModifController.java</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/SigninController.java</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Services/ServiceUtilisateur.java</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Entities/Utilisateur.java</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/Admincontroller.java</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/PasseController.java</file>
         </group>
     </open-files>

@@ -18,7 +18,7 @@
                <children>
                   <VBox prefHeight="342.0" prefWidth="212.0" AnchorPane.topAnchor="180.0">
                      <children>
-                        <Button fx:id="user" mnemonicParsing="false"  prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="Gérer utilisateur/Appartenant " textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#changeUser" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="Gérer utilisateur/Appartenant " textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
