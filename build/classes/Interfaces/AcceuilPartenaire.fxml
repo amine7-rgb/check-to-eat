@@ -41,7 +41,7 @@
                               <Insets bottom="20.0" />
                            </padding>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#evente" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="Gérer Event " textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="Gérer Event " textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
@@ -52,7 +52,7 @@
                               <Insets bottom="20.0" />
                            </padding>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="Gérer evenement" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#addevent" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="Gérer evenement" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>

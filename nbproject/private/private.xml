@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/service/optionService.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/gui/partenaire.fxml</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/utils/Datasource.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/Controllers/ProfileUserController.java</file>
@@ -10,6 +11,7 @@
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/Interfaces/AcceuilPartenaire.fxml</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/Interfaces/profilUser.fxml</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/gui/CatController.java</file>
+            <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/service/evenementService.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/service/Iserviceco.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/Services/ServiceUtilisateur.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/views/FXMLAffiche.fxml</file>
@@ -17,7 +19,9 @@
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/servicee/ServiceCat.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/service/Iservicepr.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/views/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/gui/SuppoptionController.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/views/FXMLchercherCommandeController.java</file>
+            <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/entity/Restau.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/Entities/Produit.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/gui/AddMenuController.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/Interfaces/mysqlconnect.java</file>
@@ -26,11 +30,13 @@
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/Entities/Utilisateur.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/nbproject/jfx-impl.xml</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/Interfaces/profilePar.fxml</file>
+            <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/gui/Supp_evenementController.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/Services/ServiceAdmin.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/views/FXMLAfficheController.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/Interfaces/Acceuil.fxml</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/gui/PartenaireController.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/views/FXMLchercherCommande.fxml</file>
+            <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/gui/Gestion_evenementController.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/service/ProduitService.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/service/CatService.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/views/FXMLAffichePanier.fxml</file>
@@ -46,6 +52,7 @@
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/Entities/Commande.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/Entities/LoggedInUser.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/Entities/Commandeaffiche.java</file>
+            <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/service/Iservicee.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/Controllers/ProfilePartenaireController.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/Entities/Panier.java</file>
             <file>file:/C:/Users/amed1/Desktop/MainJavaFX/src/views/FXMLclientcommande.fxml</file>

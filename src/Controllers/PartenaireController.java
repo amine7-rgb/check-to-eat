@@ -50,12 +50,15 @@ public class PartenaireController {
         
     }
 
+
     @FXML
-    private void evente(ActionEvent event)  throws IOException{
-          Pane p = FXMLLoader.load(getClass().getResource("/gui/partenaire.fxml"));
+    private void addevent(ActionEvent event)  throws IOException {
+        Pane p = FXMLLoader.load(getClass().getResource("/gui/gestion_evenement.fxml"));
         acpane.getChildren().add(p);
-        
+
     }
+
+   
 
     }
 

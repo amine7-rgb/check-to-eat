@@ -160,26 +160,42 @@ public class PartenaireController implements Initializable {
     private JFXButton sta;
  
     
-    
+    private String id;
+    @FXML
+    private Label userid;
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        //combo =new ComboBox();
-        CatService c =new  CatService();
-        
-       // String req = "select * from utilisateur";
-       // combob.getItems().addAll(); 
-        combo.getItems().addAll(c.read());
-       // combo.setOnAction(e->System.out.println("aaaa"));
+        try {
+            // TODO
+            //combo =new ComboBox();
+            CatService c =new  CatService();
+            System.out.println(r.myid());
+            // String req = "select * from utilisateur";
+            // combob.getItems().addAll();
+            combo.getItems().addAll(c.read());
+            // combo.setOnAction(e->System.out.println("aaaa"));
 //      String date = mydatepicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-       afficher();
-      // nb.setPrefColumnCount(r.nbpartenaireTotal());
+afficher();
+// nb.setPrefColumnCount(r.nbpartenaireTotal());
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
           
     }    
+    
+    public void myid (String id){
+     this.id=id;
+        
+    }
+    public  String getid()
+    {
+            return this.id;
+    }
 
      @FXML
     private void go_table(MouseEvent event) {
@@ -210,10 +226,11 @@ public class PartenaireController implements Initializable {
      //  String erreur="";
         // SMS srvss=new SMS();
           String date = mydatepicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-          int idus = Integer.parseInt(tus.getText());
+//          int idus = Integer.parseInt(tus.getText());
+       
       //  Restau re = new Restau(tnom.getText(),tdate.getText(),tlocal.getText(), path , tdesc.getText(),elist.getTypeSelector());
        // Restau m =new Restau(tnom.getText(),date ,tlocal.getText(), elpath , tdesc.getText(),combo.getSelectionModel().getSelectedItem(),tus.getText());
-          Restau m = new Restau(tnom.getText(),date ,tlocal.getText(), elpath , tdesc.getText(),combo.getSelectionModel().getSelectedItem(),idus);
+          Restau m = new Restau(tnom.getText(),date ,tlocal.getText(), elpath , tdesc.getText(),combo.getSelectionModel().getSelectedItem(),Integer.parseInt(r.myid()));
         if (testNom())
         
           r.insertt(m);
@@ -230,7 +247,7 @@ public class PartenaireController implements Initializable {
        
     
     }
-    public void afficher(){
+    public void afficher() throws SQLException{
         
         
         //ObservableList obeListe = FXCollections.observableList(r.read());
@@ -238,7 +255,11 @@ public class PartenaireController implements Initializable {
       //  obeListe.addAll(r.readtYpe());
      //    ObservableList<Categorie> obeListe1 =FXCollections.observableArrayList();
        // obeListe1.addAll(cse.read());
-        ObservableList obeListe = FXCollections.observableList(r.readtYpe());
+       System.out.println("-----------------------");
+      //  System.out.println(Integer.parseInt(id));
+               System.out.println("-----------------------");
+
+        ObservableList obeListe = FXCollections.observableList(r.readtifus(Integer.parseInt(r.myid())));
 
         cid.setCellValueFactory(new PropertyValueFactory<>("id"));
         cnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
@@ -274,7 +295,7 @@ public class PartenaireController implements Initializable {
     
 
     @FXML
-    private void delete(ActionEvent event) {
+    private void delete(ActionEvent event) throws SQLException, SQLException {
         
         
         int k=Integer.valueOf(cid.getCellData(tablel.getSelectionModel().getSelectedIndex()).toString());
@@ -321,7 +342,7 @@ public class PartenaireController implements Initializable {
     
 
     @FXML
-    private void update(ActionEvent event) {
+    private void update(ActionEvent event) throws SQLException {
          
         
         if(testNom())
@@ -498,7 +519,7 @@ public class PartenaireController implements Initializable {
     }
 
     @FXML
-    private void rechhh(ActionEvent event) {
+    private void rechhh(ActionEvent event) throws SQLException {
          if(!rech.getText().isEmpty())
         {
      ObservableList <Restau> g = FXCollections.observableArrayList();

@@ -27,7 +27,16 @@ public class Restau {
     private int id_us;
     private String type;
     private String nbr;
+    private int connect;
    // private String cat;
+
+    public int getConnect() {
+        return connect;
+    }
+
+    public void setConnect(int connect) {
+        this.connect = connect;
+    }
 
     public Restau(int id, String nom, String datef, String local, String image, String descr, String type) {
         this.id = id;

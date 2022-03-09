@@ -93,5 +93,6 @@
       <PieChart fx:id="pc" layoutX="60.0" layoutY="666.0" prefHeight="242.0" prefWidth="279.0" />
       <JFXButton />
       <JFXButton fx:id="sta" layoutX="612.0" layoutY="743.0" onAction="#staa" text="statistique" />
+      <Label fx:id="userid" layoutX="221.0" layoutY="704.0" text="Label" />
    </children>
 </AnchorPane>

@@ -10,6 +10,7 @@ import Interfaces.mysqlconnect;
 import Services.ServiceUtilisateur;
 import utils.JavaMailUtil;
 
+import service.RestauService;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -37,7 +38,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import org.springframework.security.crypto.bcrypt.BCrypt;
-
+import gui.PartenaireController;
 
 /**
  *
@@ -74,18 +75,20 @@ public class SigninController implements Initializable{
     private CheckBox sheck;
     @FXML
     private TextField txt_pass;
-    
+    public String myid ;
     ServiceUtilisateur u = new ServiceUtilisateur();
         
         Connection conn = null;
         ResultSet rs =null;
         PreparedStatement pst = null;
-
+PartenaireController p = new PartenaireController();
+   RestauService r =new RestauService();
        
      @FXML
     private void Login (ActionEvent event) throws Exception{   
         conn= mysqlconnect.ConnectDb();
         String ch;
+        String id;
         String sql = "Select * from utilisateur where adress_email = ? and role = ?";    
         try{
             pst = conn.prepareStatement(sql);
@@ -93,8 +96,12 @@ public class SigninController implements Initializable{
             
             pst.setString(2, type.getValue().toString());
             rs = pst.executeQuery();
-            
+           
             if(rs.next() && BCrypt.checkpw(ppasse.getText(), rs.getString("mot_pass"))){
+                myid = rs.getString("id");
+                r.welcome(myid);
+                
+                p.myid(myid);
                 JOptionPane.showMessageDialog(null, "Usermane and Password is Correct");        
                 if(type.getValue().equals("Admin")){
                 Parent root =FXMLLoader.load(getClass().getResource("/Interfaces/Acceuil.fxml"));    
@@ -125,6 +132,7 @@ public class SigninController implements Initializable{
     
     @FXML
     private void exit(MouseEvent event) {
+        r.logout(myid);
      System.exit(0);
     }
 

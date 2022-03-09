@@ -58,6 +58,37 @@ public class RestauService implements IService<Restau>{
         }
    
     }
+    
+    
+    public void welcome (String id)
+    {
+         try {
+            PreparedStatement pt= conn.prepareStatement("update utilisateur set connect=? where id =? ");
+            pt.setInt(1,1);
+            pt.setString(2,id);
+           
+            
+            pt.execute();
+        } catch (SQLException ex) {
+             System.out.println(ex.getMessage());
+        }
+    }
+    
+    
+    
+    public void logout (String id)
+    {
+         try {
+            PreparedStatement pt= conn.prepareStatement("update utilisateur set connect=? where id =? ");
+            pt.setInt(1,0);
+            pt.setString(2,id);
+           
+            
+            pt.execute();
+        } catch (SQLException ex) {
+             System.out.println(ex.getMessage());
+        }
+    }
 
     public void insertt(Restau r) {
         
@@ -329,6 +360,53 @@ public class RestauService implements IService<Restau>{
      
      
      
+     public List<Restau> readtifus(int id) throws SQLException {
+        
+                    List<Restau> list=new ArrayList<>();
+                 //   Restau r = new Restau();
+                   // int a =r.getcat().getId();
+                    CatService ca = new CatService();
+                   // Categorie m =new Categorie();
+                    
+        try {
+            
+                PreparedStatement req= conn.prepareStatement("SELECT * FROM partenaire INNER JOIN categorie ON categorie.id = partenaire.id_cat where partenaire.id_us = ?");
+            req.setInt(1,id);
+            ResultSet rs= req.executeQuery();
+            
+            //ste=conn.createStatement();
+           // rs= ste.executeQuery(req);
+            while(rs.next()){
+             list.add(new Restau(rs.getInt("id"), rs.getString("nom"), rs.getString("datef"), rs.getString("local"), rs.getString("image"), rs.getString("descr"),rs.getString("type")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RestauService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    
+    }
+     
+     public String myid() throws SQLException {
+        
+                 
+                   // Categorie m =new Categorie();
+           String ahmed="";
+     
+        try {
+            
+                PreparedStatement req= conn.prepareStatement("SELECT utilisateur.id from utilisateur where connect=1");
+            ResultSet rs= req.executeQuery();
+            //ste=conn.createStatement();
+           // rs= ste.executeQuery(req);
+            while(rs.next()){
+                ahmed = rs.getString("id");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RestauService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ahmed;
+    
+    }
      
      
      
