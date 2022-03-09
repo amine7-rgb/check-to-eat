@@ -8,38 +8,42 @@ package utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
- * @author GhAlone
+ * @author amed1
  */
-public class DataSource {  
-    private static DataSource instance;
-    private Connection cnx;
+public class Datasource {
     
-    private final String URL = "jdbc:mysql://localhost:3306/pi";
-    private final String USER = "root";
-    private final String PASSWORD = "";
+   private  String url="jdbc:mysql://localhost:3306/check_to_eat";
+   private  String login="root";
+   private  String pwd="";
+   
+   private  Connection cnx;
+   private static Datasource instance;
 
-    private DataSource(){
-      
+    private Datasource() {
         try {
-            cnx = DriverManager.getConnection(URL ,USER ,PASSWORD);
-            System.out.println("connecting!");
+            cnx=DriverManager.getConnection(url, login, pwd);
         } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
+            Logger.getLogger(Datasource.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public static DataSource getInstance(){
-        if (instance == null)
-             instance = new DataSource();
-        return instance;
-        
-        
+    
+    public static Datasource getInstance(){
+         if(instance==null)
+             instance=new Datasource();
+         return instance;
     }
 
     public Connection getCnx() {
         return cnx;
     }
-        
-    }
+   
+   
+    
+    
+}

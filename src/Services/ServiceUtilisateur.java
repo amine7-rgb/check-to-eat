@@ -19,8 +19,7 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import utils.DataSource;
-
+import utils.Datasource;
 /**
  *
  * @author GhAlone
@@ -29,7 +28,7 @@ import utils.DataSource;
 public class ServiceUtilisateur implements UService<Utilisateur> {
     boolean x;
             
-        Connection cnx=DataSource.getInstance().getCnx();
+        Connection cnx=Datasource.getInstance().getCnx();
 
     /**
      *

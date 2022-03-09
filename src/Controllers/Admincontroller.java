@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
@@ -26,6 +27,13 @@ public class Admincontroller {
     
     @FXML
     private Pane acpane;
+    @FXML
+    private BorderPane Bpadmin;
+    @FXML
+    private Button c;
+    @FXML
+    private Button ca;
+   
 
     
     
@@ -34,5 +42,31 @@ public class Admincontroller {
         Pane p = FXMLLoader.load(getClass().getResource("/Interfaces/modifierUsers.fxml"));
         acpane.getChildren().add(p);
 
+    }
+
+    @FXML
+    
+    private void addcateg(ActionEvent event)  throws IOException {
+    Pane p = FXMLLoader.load(getClass().getResource("/gui/categorie.fxml"));
+        acpane.getChildren().add(p);
+
+    }
+
+    @FXML
+    private void addmenu(ActionEvent event) throws IOException{
+         Pane p = FXMLLoader.load(getClass().getResource("/gui/cat.fxml"));
+        acpane.getChildren().add(p);
+    }
+    
+       @FXML
+    void afficherC(ActionEvent event)  throws IOException{
+             Pane p = FXMLLoader.load(getClass().getResource("/views/FXMLAffiche.fxml"));
+        acpane.getChildren().add(p);
+    }
+     
+    @FXML
+    void ajouterpanier(ActionEvent event) throws IOException{
+         Pane p = FXMLLoader.load(getClass().getResource("/views/FXMLAffichePanier.fxml"));
+        acpane.getChildren().add(p);
     }
 }

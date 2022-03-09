@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import utils.DataSource;
+import utils.Datasource;
 
 /**
  *
@@ -27,7 +27,7 @@ import utils.DataSource;
 public class ServiceAdmin implements AService<Utilisateur> {
             boolean x;
             
-              Connection cnx=DataSource.getInstance().getCnx();
+              Connection cnx=Datasource.getInstance().getCnx();
 
     @Override
     public boolean connecter(Utilisateur a) {

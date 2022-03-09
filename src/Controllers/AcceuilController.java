@@ -31,6 +31,8 @@ public class AcceuilController {
     private Label l;
     @FXML
     private Pane acpane;
+    @FXML
+    private Button GererCat;
 
     
   
@@ -41,6 +43,9 @@ public class AcceuilController {
 
     }
 
+    
+    
+    
 public BorderPane getborder(){
     return Bpadmin;
 }
@@ -49,7 +54,39 @@ public void setLabel(String s){
 l.setText(s);
 }
 
-    
-  
-   
+    @FXML
+    private void menu(ActionEvent event) throws IOException {
+        
+       Pane p = FXMLLoader.load(getClass().getResource("/gui/AddMenu.fxml"));
+        acpane.getChildren().add(p);
+        
+        
+    }
+
+    @FXML
+    private void addpanier(ActionEvent event) throws IOException{
+        Pane p = FXMLLoader.load(getClass().getResource("/views/FXMLchercherCommande.fxml"));
+        acpane.getChildren().add(p);
+    }
+
+      @FXML
+    void imprimerpdf(ActionEvent event) throws IOException {
+            Pane p = FXMLLoader.load(getClass().getResource("/views/FXMLcreatePDF.fxml"));
+            acpane.getChildren().add(p);
+    }
+
+/*
+    @FXML
+    private void ajoutercomm(ActionEvent event) throws IOException{
+          Pane p = FXMLLoader.load(getClass().getResource("/views/FXMLclientcommande.fxml"));
+            acpane.getChildren().add(p);
+    }
+
+*/
+
+    @FXML
+    private void comm(ActionEvent event) throws IOException {
+          Pane p = FXMLLoader.load(getClass().getResource("/views/FXMLclientcommande.fxml"));
+            acpane.getChildren().add(p);
+    }
 }

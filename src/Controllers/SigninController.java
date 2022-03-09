@@ -43,6 +43,8 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
  *
  * @author GhAlone
  */
+
+
 public class SigninController implements Initializable{
     
        @FXML
@@ -118,6 +120,7 @@ public class SigninController implements Initializable{
         }catch(Exception ex){
                 System.out.println(ex.getMessage());
         }
+         clear();
     }
     
     @FXML
@@ -199,4 +202,11 @@ public class SigninController implements Initializable{
         });
       //end
     }
+
+    private void clear(){
+        
+        email.setText("");
+        ppasse.setText("");
+    }
+    
     }

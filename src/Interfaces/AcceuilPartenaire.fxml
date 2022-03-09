@@ -30,7 +30,7 @@
                               <Insets bottom="20.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="gererRes" mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="Gérer Reservation" textFill="WHITE">
+                        <Button fx:id="gererRes" mnemonicParsing="false" onAction="#addR" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="add restau" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
@@ -41,7 +41,7 @@
                               <Insets bottom="20.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="gererEve" mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="Gérer Event " textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#evente" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="Gérer Event " textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
@@ -52,7 +52,7 @@
                               <Insets bottom="20.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="gererREC" mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="Gérer Reclamations" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="Gérer evenement" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
@@ -106,7 +106,7 @@
    <center>
       <AnchorPane prefHeight="479.0" prefWidth="796.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="acpane" prefHeight="642.0" prefWidth="797.0">
+            <Pane fx:id="acpane" layoutY="14.0" prefHeight="642.0" prefWidth="797.0">
                <children>
                   <Label fx:id="l" layoutX="392.0" layoutY="80.0" text="Label" />
                </children></Pane>
