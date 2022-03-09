@@ -619,8 +619,8 @@ caption.setStyle("-fx-font: 24 arial;");
                 caption.setTranslateX(e.getSceneX());
                 caption.setTranslateY(e.getSceneY());
                 System.out.println(String.valueOf(data.getPieValue()*100/all %.2f) + "%");
-                float ahmed = (float) (data.getPieValue()*100/all);
-                caption.setText(String.valueOf(new DecimalFormat("##.##").format(ahmed)) + "%");
+                float amine = (float) (data.getPieValue()*100/all);
+                caption.setText(String.valueOf(new DecimalFormat("##.##").format(amine)) + "%");
              }
         });
 }
