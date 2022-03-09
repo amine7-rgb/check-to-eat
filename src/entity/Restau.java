@@ -25,18 +25,44 @@ public class Restau {
     private String descr;
     private Categorie id_cat ; 
     private int id_us;
+    private String type;
+    private String nbr;
    // private String cat;
 
-    /*public Restau(int id, String nom, String datef, String local, String image, String descr, String cat) {
+    public Restau(int id, String nom, String datef, String local, String image, String descr, String type) {
         this.id = id;
         this.nom = nom;
         this.datef = datef;
         this.local = local;
         this.image = image;
         this.descr = descr;
-        this.cat = cat;
+        this.type=type;
     }
-   */
+
+   
+
+    public Restau(String type, String nbr) {
+            this.type = type;
+              this.nbr = nbr;    
+    }
+    
+
+    public String getNbr() {
+        return nbr;
+    }
+
+    public void setNbr(String nbr) {
+        this.nbr = nbr;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+   
 
     public Restau(int id) {
         this.id = id;

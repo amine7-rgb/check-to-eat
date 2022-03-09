@@ -8,6 +8,8 @@ package gui;
 
 
 
+import javafx.scene.chart.*;
+import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import static com.ibm.icu.impl.PluralRulesLoader.loader;
@@ -16,7 +18,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import utils.Datasource;
 import service.SoundClick;
@@ -55,9 +58,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -75,6 +81,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import static org.apache.poi.hssf.usermodel.HeaderFooter.date;
 
@@ -136,7 +143,7 @@ public class PartenaireController implements Initializable {
     @FXML
     private JFXTextField tid_ca;
     @FXML
-    private TableColumn<Categorie, Restau> cate;
+    private TableColumn<Restau, String> cate;
     @FXML
     private TableView<Restau> tablel;
     @FXML
@@ -147,6 +154,11 @@ public class PartenaireController implements Initializable {
     private ImageView img;
     @FXML
     private JFXButton exit;
+    @FXML
+    private PieChart pc;
+    @FXML
+    private JFXButton sta;
+ 
     
     
     
@@ -159,10 +171,14 @@ public class PartenaireController implements Initializable {
         //combo =new ComboBox();
         CatService c =new  CatService();
         
+       // String req = "select * from utilisateur";
+       // combob.getItems().addAll(); 
         combo.getItems().addAll(c.read());
        // combo.setOnAction(e->System.out.println("aaaa"));
 //      String date = mydatepicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
        afficher();
+      // nb.setPrefColumnCount(r.nbpartenaireTotal());
+          
     }    
 
      @FXML
@@ -218,10 +234,11 @@ public class PartenaireController implements Initializable {
         
         
         //ObservableList obeListe = FXCollections.observableList(r.read());
-        ObservableList<Restau> obeListe =FXCollections.observableArrayList();
-        obeListe.addAll(r.read());
-         ObservableList<Categorie> obeListe1 =FXCollections.observableArrayList();
-        obeListe1.addAll(cse.read());
+      //  ObservableList<Restau> obeListe =FXCollections.observableArrayList();
+      //  obeListe.addAll(r.readtYpe());
+     //    ObservableList<Categorie> obeListe1 =FXCollections.observableArrayList();
+       // obeListe1.addAll(cse.read());
+        ObservableList obeListe = FXCollections.observableList(r.readtYpe());
 
         cid.setCellValueFactory(new PropertyValueFactory<>("id"));
         cnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
@@ -231,9 +248,10 @@ public class PartenaireController implements Initializable {
         clocal.setCellValueFactory(new PropertyValueFactory<>("local"));
         cdesc.setCellValueFactory(new PropertyValueFactory<>("descr"));
       
-        cate.setCellValueFactory(new PropertyValueFactory<>("id_cat"));
+        
+        cate.setCellValueFactory(new PropertyValueFactory<>("type"));
        
-        // System.out.println(obeListe);
+        System.out.println(obeListe);
        // ComboBox<Categorie> = FXCollections.observableArrayList("id_cat");
      
         
@@ -562,7 +580,73 @@ public class PartenaireController implements Initializable {
     }
     
     
-        }
+    public void start(Stage stage) {
+       
+        stage.show();
+    }
+
+    @FXML
+    private void staa(ActionEvent event)  throws  IOException {
+          
+         Parent root =FXMLLoader.load(getClass().getResource("stat.fxml"));    
+                Stage stage = new Stage();
+             Scene scene = new Scene(new Group());
+        
+
+        
+        
+        stage.setTitle("Imported Fruits");
+        stage.setWidth(500);
+        stage.setHeight(500);
+ 
+
+                        ObservableList obeListe = FXCollections.observableList(r.stat());
+
+       
+        
+        final PieChart chart = new PieChart(obeListe);
+        chart.setTitle("Imported Fruits");
+        
+        int all = r.kolfelkol();
+        
+        final Label caption = new Label("");
+caption.setTextFill(Color.BLACK);
+caption.setStyle("-fx-font: 24 arial;");
+        for (final PieChart.Data data : chart.getData()) {
+    data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED,
+        new EventHandler<MouseEvent>() {
+            @Override public void handle(MouseEvent e) {
+                caption.setTranslateX(e.getSceneX());
+                caption.setTranslateY(e.getSceneY());
+                System.out.println(String.valueOf(data.getPieValue()*100/all %.2f) + "%");
+                float ahmed = (float) (data.getPieValue()*100/all);
+                caption.setText(String.valueOf(new DecimalFormat("##.##").format(ahmed)) + "%");
+             }
+        });
+}
+
+        ((Group) scene.getRoot()).getChildren().addAll(chart,caption);
+        stage.setScene(scene);
+   
+                            stage.show();
+
+          
+            
+           // javafx.scene.image.Image j =new javafx.scene.image.Image("C:\\QRCODE\\"+nom+".png");
+          //  Image jj =new Image(getClass().getResourceAsStream("C:\\QRCODE\\"+nom+".png"));
+            
+       
+        
+        
+    }
+    
+      
+            }
+    
+    
+
+
+
 
     
     

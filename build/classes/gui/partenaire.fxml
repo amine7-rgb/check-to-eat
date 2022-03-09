@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -12,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rec" prefHeight="936.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PartenaireController">
+<AnchorPane id="AnchorPane" fx:id="rec" prefHeight="936.0" prefWidth="1234.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PartenaireController">
    <children>
       <TableView fx:id="tablel" layoutX="406.0" layoutY="109.0" onMouseClicked="#go_table" prefHeight="304.0" prefWidth="656.0">
         <columns>
@@ -87,5 +89,9 @@
       <JFXButton fx:id="plusdet" layoutX="380.0" layoutY="644.0" onAction="#plusdetaille" prefHeight="32.0" prefWidth="152.0" text="Plus detaillée" />
       <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" layoutX="903.0" layoutY="725.0" pickOnBounds="true" preserveRatio="true" />
       <JFXButton fx:id="exit" layoutX="1018.0" layoutY="14.0" onAction="#close" prefHeight="32.0" prefWidth="108.0" style="-fx-background-color: red;" text="exit" />
+      <JFXHamburger layoutX="-30.0" layoutY="514.0" />
+      <PieChart fx:id="pc" layoutX="60.0" layoutY="666.0" prefHeight="242.0" prefWidth="279.0" />
+      <JFXButton />
+      <JFXButton fx:id="sta" layoutX="612.0" layoutY="743.0" onAction="#staa" text="statistique" />
    </children>
 </AnchorPane>

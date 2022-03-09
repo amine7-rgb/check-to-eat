@@ -164,13 +164,13 @@ public class CategorieController implements Initializable {
         try {
            
         
-              Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmation Dialog");
             alert.setHeaderText(null);
             alert.setContentText("Vous voulez vraiment supprimer cette Categorie");
             Optional<ButtonType> action = alert.showAndWait();
             if (action.get() == ButtonType.OK) {
-               cs.supprimerr(k);
+           cs.supprimerr(k);
            srvnot.notif("supprimer");
             }
                  

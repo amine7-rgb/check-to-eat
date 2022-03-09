@@ -14,6 +14,8 @@ import java.util.logging.Logger;
 import utils.Datasource;
 import java.lang.String;
 import java.util.*;
+import javafx.scene.chart.PieChart;
+
 
 /**
  *
@@ -190,7 +192,7 @@ public class RestauService implements IService<Restau>{
     }
 */
      
-    
+    /*
     public List<Restau> read() {
         
              //   String req="select * from partenaire";
@@ -224,9 +226,9 @@ public class RestauService implements IService<Restau>{
     
     }
 
+     */
      
-     
-     /*
+    
      
      public List<Restau> read() {
         
@@ -252,7 +254,78 @@ public class RestauService implements IService<Restau>{
      
      
      
-     */
+     public List<Restau> readtYpe() {
+        
+                String req="SELECT * FROM partenaire INNER JOIN categorie ON categorie.id = partenaire.id_cat";
+                    List<Restau> list=new ArrayList<>();
+                 //   Restau r = new Restau();
+                   // int a =r.getcat().getId();
+                    CatService ca = new CatService();
+                   // Categorie m =new Categorie();
+                    
+        try {
+            ste=conn.createStatement();
+            rs= ste.executeQuery(req);
+            while(rs.next()){
+             list.add(new Restau(rs.getInt("id"), rs.getString("nom"), rs.getString("datef"), rs.getString("local"), rs.getString("image"), rs.getString("descr"),rs.getString("type")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RestauService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    
+    }
+     
+
+     
+     public List<PieChart.Data> stat() {
+        
+                String req="SELECT categorie.type,COUNT(categorie.id) as nbr FROM categorie left join partenaire on categorie.id=partenaire.id_cat group by categorie.id";
+                    List<PieChart.Data> list=new ArrayList<>();
+                 //   Restau r = new Restau();
+                   // int a =r.getcat().getId();
+                  //  CatService ca = new CatService();
+                   // Categorie m =new Categorie();
+                    
+        try {
+            ste=conn.createStatement();
+            rs= ste.executeQuery(req);
+            while(rs.next()){
+             list.add(new PieChart.Data(rs.getString("type"), rs.getInt("nbr")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RestauService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    
+    } 
+     
+     public int kolfelkol() {
+        
+                String req="SELECT categorie.type,COUNT(categorie.id) as nbr FROM categorie left join partenaire on categorie.id=partenaire.id_cat\n" +
+"";
+              
+                 //   Restau r = new Restau();
+                   // int a =r.getcat().getId();
+                  //  CatService ca = new CatService();
+                   // Categorie m =new Categorie();
+                  int nub =  0; 
+        try {
+            ste=conn.createStatement();
+            rs= ste.executeQuery(req);
+            while(rs.next()){
+                nub = rs.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RestauService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nub;
+    
+    } 
+     
+     
+     
+     
      
      
      
@@ -364,5 +437,50 @@ public class RestauService implements IService<Restau>{
     }
     
   
+    /*
     
-}
+      public List<Restau> readuser() {
+      
+           String req="select * from utilisateur";
+                    List<utilisateur> list=new ArrayList<>();
+                 //   Restau r = new Restau();
+                   // int a =r.getcat().getId();
+                   // Categorie m =new Categorie();
+                    
+        try {
+            ste=conn.createStatement();
+            rs= ste.executeQuery(req);
+            while(rs.next()){
+             list.add(new Restau(rs.getInt("id"), rs.getString("nom"), rs.getString("datef"), rs.getString("local"), rs.getString("image"), rs.getString("descr"),ca.readd(rs.getInt("id_cat"))));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RestauService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+      
+      
+      }
+*/
+    /*
+    public int nbpartenaireTotal() {
+        int nbtotal = 0;
+        try {
+            String req = "Select * from partenaire";
+           
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                nbtotal = nbtotal + 1;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        if (nbtotal == 0) {
+            System.out.println("Il y a aucune abonnement");
+        }
+        return nbtotal;
+    }*/
+      }
+    
+    
+    
