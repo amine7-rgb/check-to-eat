@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/CommandeFxml/src/commandefxml/views/FXMLclientcommande.fxml</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/CommandeFxml/src/commandefxml/views/FXMLcreatePDFController.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/CommandeFxml/src/commandefxml/entities/Commandeaffiche.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/CommandeFxml/src/commandefxml/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/CommandeFxml/src/commandefxml/views/FXMLchercherCommandeController.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/CommandeFxml/src/commandefxml/entities/Commande.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/CommandeFxml/src/commandefxml/views/fxmlclientcommande.css</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/CommandeFxml/src/commandefxml/views/FXMLAfficheController.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/CommandeFxml/src/commandefxml/gestionCommandes/GestionCommandes.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/CommandeFxml/src/commandefxml/views/FXMLclientcommandeController.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/CommandeFxml/nbproject/jfx-impl.xml</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/CommandeFxml/src/commandefxml/service/Commandeservice.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/CommandeFxml/src/commandefxml/CommandeFxml.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/CommandeFxml/src/commandefxml/views/FXMLAffichePanierController.java</file>
+        </group>
+    </open-files>
+</project-private>
