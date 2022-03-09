@@ -51,6 +51,27 @@ public class ServiceUtilisateur implements UService<Utilisateur> {
         return ok;
     }
 
+    
+    
+    @Override
+    public void profil(Utilisateur u) {
+            try {
+                String req="update utilisateur set nom=?,prenom=?,num_tel=?,genre=?,adress_email=?,image=? where id=?";
+                PreparedStatement pst=cnx.prepareStatement(req);
+                 pst.setInt(7,u.getId());
+                pst.setString(1,u.getNom());
+                pst.setString(2,u.getPrenom());
+                pst.setInt(3,u.getNum_tel());
+                pst.setString(4,u.getGenre());
+                 pst.setString(5,u.getAdress_email());
+                pst.setString(6, u.getImage());
+                pst.executeUpdate();
+                System.out.println("modifier profil");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());    
+            }
+    }
+    
     @Override
     public void changer_pass(Utilisateur u) {
             try {

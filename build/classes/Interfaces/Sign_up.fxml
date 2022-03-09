@@ -50,15 +50,6 @@
          </font>
       </Button>
       <CheckBox fx:id="check" layoutX="275.0" layoutY="294.0" mnemonicParsing="false" text="Afficher le mot de passe " textFill="#bfa6a6" />
-      <Button fx:id="btn_retour" layoutX="229.0" layoutY="30.0" minWidth="34.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="49.0" style="-fx-background-color: #ffffff;">
-         <graphic>
-            <ImageView fx:id="home" fitHeight="40.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Images/home.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
       <Label fx:id="passe" layoutX="251.0" layoutY="270.0" prefHeight="26.0" prefWidth="305.0" textFill="#da1d1d" />
       <ComboBox fx:id="type" cacheShape="false" layoutX="275.0" layoutY="367.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.49" prefWidth="150.0" promptText="type" visibleRowCount="8">
          <effect>

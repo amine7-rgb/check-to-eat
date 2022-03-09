@@ -39,6 +39,15 @@ public class Utilisateur {
         this.role = role;
     }
 
+    public Utilisateur(String nom, String prenom, int num_tel, String genre, String adress_email, String image) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.num_tel = num_tel;
+        this.genre = genre;
+        this.adress_email = adress_email;
+        this.image = image;
+    }
+
    
 
     

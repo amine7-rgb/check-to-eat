@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="Bpadmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AcceuilController">
+<BorderPane fx:id="Bpadmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AcceuilController">
    <left>
       <VBox prefHeight="526.0" prefWidth="209.0" style="-fx-background-color: #0A0232;" BorderPane.alignment="CENTER">
          <children>
@@ -19,7 +19,7 @@
                <children>
                   <VBox prefHeight="342.0" prefWidth="212.0" AnchorPane.topAnchor="180.0">
                      <children>
-                        <Button fx:id="gererPro" mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="Gérer Profil" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#changeUser" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="Gérer Profil user" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
@@ -88,7 +88,7 @@
                         </Button>
                      </children>
                   </VBox>
-                  <AnchorPane layoutY="-2.0" prefHeight="642.0" prefWidth="43.0" style="-fx-background-color: #0A0232;">
+                  <AnchorPane layoutY="-2.0" prefHeight="579.0" prefWidth="43.0" style="-fx-background-color: #0A0232;">
                      <effect>
                         <DropShadow />
                      </effect>
@@ -98,15 +98,6 @@
                         <Image url="@../Images/Admin.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="home" layoutX="62.0" layoutY="592.0" mnemonicParsing="false" style="-fx-background-color: #0A0232;">
-                     <graphic>
-                        <ImageView fitHeight="33.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/home.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
                </children>
             </AnchorPane>
          </children>
@@ -115,7 +106,7 @@
    <center>
       <AnchorPane prefHeight="479.0" prefWidth="796.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="642.0" prefWidth="797.0">
+            <Pane fx:id="acpane" layoutX="-3.0" prefHeight="579.0" prefWidth="800.0">
                <children>
                   <Label fx:id="l" layoutX="392.0" layoutY="80.0" text="Label" />
                </children></Pane>

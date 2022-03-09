@@ -14,10 +14,10 @@ import java.util.List;
 public interface UService<U > {
        public boolean connecter(U u);
         public void changer_pass(U u);
+        public void profil(U u);
         public void modifier(U u);
         public void inscrir(U u); 
         public List<U> afficher();
-
 }
 
 

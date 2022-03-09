@@ -20,6 +20,8 @@ import java.net.URL;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -164,10 +166,14 @@ ToggleGroup groupGender=new ToggleGroup();
         alerts.setContentText("Veuillez remplir les champs!");
         alerts.show();
            }else {
-             if(ControleSaisie.validemail(email.getText())== false && ControleSaisie.isnum(num.getText())){
-                 email.setText("Veuillez saisir une adresse email valide !");
-             } else if(ControleSaisie.validemail(email.getText()) && selectedFile != null){
-              
+                 
+             if(ControleSaisie.validemail(email.getText())== false){
+                email.setText("Veuillez saisir une adresse email valide !");
+             } if(ControleSaisie.isnum(num.getText())==false){
+                num.setText("numero invalide !");
+                 
+             }
+            else if(ControleSaisie.validemail(email.getText())&&ControleSaisie.isnum(num.getText()) && selectedFile != null){
             try {
                 RadioButton selectedRadioButton = (RadioButton) groupGender.getSelectedToggle();
             String toogleGroupValue = selectedRadioButton.getText();
@@ -180,21 +186,28 @@ ToggleGroup groupGender=new ToggleGroup();
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);
         alert.setContentText("Formateur insérée avec succés!");
-        alert.setOnCloseRequest(event -> {     
-                    try {
-                        
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Interfaces/AceuilUser.fxml"));
-                       
-                        Parent root = loader.load();
-                        AcceuilController ac= loader.getController();
-                        ac.setLabel(nom.getText());
-                        
-                        nom.getScene().setRoot(root);
-                
-                 
-                
-                    } catch (Exception ex) {
-                        System.out.println(ex.getMessage());
+        alert.setOnCloseRequest(event -> { 
+             if(type.getValue().equals("user")){
+                 try {
+                     Parent root =FXMLLoader.load(getClass().getResource("/Interfaces/AceuilUser.fxml"));
+                     Stage mainStage = new Stage();
+                     Scene scene = new Scene(root);
+                     mainStage.setScene(scene);
+                     mainStage.show();
+                 } catch (IOException ex) {
+                     Logger.getLogger(SignupController.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+                }else{
+                 try {
+                     Parent root =FXMLLoader.load(getClass().getResource("/Interfaces/AcceuilPartenaire.fxml"));
+                     Stage mainStage = new Stage();
+                     Scene scene = new Scene(root);
+                     mainStage.setScene(scene);
+                     mainStage.show();
+                 } catch (IOException ex) {
+                     Logger.getLogger(SignupController.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+                  
                     }
                 
         });

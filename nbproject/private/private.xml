@@ -5,20 +5,18 @@
         <group>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Interfaces/MainJavaFX.java</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/SignupController.java</file>
-            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/DataValidation.java</file>
-            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Interfaces/Acceuil.fxml</file>
-            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/AcceuilController.java</file>
-            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Services/ControleSaisie.java</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Interfaces/profilUser.fxml</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Interfaces/profilePar.fxml</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Interfaces/modification.fxml</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Interfaces/modifierUsers.fxml</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/UserController.java</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/ProfileUserController.java</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/InterfaceModifController.java</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/SigninController.java</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Services/ServiceUtilisateur.java</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Services/UService.java</file>
+            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/ProfilePartenaireController.java</file>
             <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Entities/Utilisateur.java</file>
-            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/Admincontroller.java</file>
-            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Controllers/PasseController.java</file>
-            <file>file:/C:/Users/GhAlone/Documents/NetBeansProjects/MainJavaFX/src/Services/ServiceAdmin.java</file>
         </group>
     </open-files>
 </project-private>

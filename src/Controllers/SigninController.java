@@ -47,9 +47,7 @@ public class SigninController implements Initializable{
     
        @FXML
     private TextField email;
-
-    
-
+       
     @FXML
     private Button button;
 
@@ -65,9 +63,7 @@ public class SigninController implements Initializable{
     @FXML
     private ImageView cancel;
     
-    Connection conn = null;
-    ResultSet rs =null;
-    PreparedStatement pst = null;
+   
     
      @FXML
     private PasswordField ppasse;
@@ -78,14 +74,17 @@ public class SigninController implements Initializable{
     private TextField txt_pass;
     
     ServiceUtilisateur u = new ServiceUtilisateur();
-
+        
+        Connection conn = null;
+        ResultSet rs =null;
+        PreparedStatement pst = null;
 
        
      @FXML
     private void Login (ActionEvent event) throws Exception{   
         conn= mysqlconnect.ConnectDb();
         String ch;
-        String sql = "Select * from utilisateur where adress_email = ?  and role = ?";    
+        String sql = "Select * from utilisateur where adress_email = ? and role = ?";    
         try{
             pst = conn.prepareStatement(sql);
             pst.setString(1, email.getText());
@@ -101,13 +100,19 @@ public class SigninController implements Initializable{
                 Scene scene = new Scene(root);
                 mainStage.setScene(scene);
                 mainStage.show();
-                }else{
+                }else if(type.getValue().equals("user")){
                 Parent root =FXMLLoader.load(getClass().getResource("/Interfaces/AceuilUser.fxml"));    
                 Stage mainStage = new Stage();
                 Scene scene = new Scene(root);
                 mainStage.setScene(scene);
                 mainStage.show();
-                }
+                }else{
+                Parent root =FXMLLoader.load(getClass().getResource("/Interfaces/AcceuilPartenaire.fxml"));    
+                Stage mainStage = new Stage();
+                Scene scene = new Scene(root);
+                mainStage.setScene(scene);
+                mainStage.show();  
+                        }
             }else
                 JOptionPane.showMessageDialog(null, "invalide Username or Password");
         }catch(Exception ex){

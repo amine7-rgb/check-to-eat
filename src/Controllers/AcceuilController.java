@@ -8,6 +8,7 @@ package Controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,7 +29,17 @@ public class AcceuilController {
     private BorderPane Bpadmin;
     @FXML
     private Label l;
+    @FXML
+    private Pane acpane;
 
+    
+  
+    @FXML
+    void changeUser(ActionEvent event) throws IOException {
+        Pane p = FXMLLoader.load(getClass().getResource("/Interfaces/profilUser.fxml"));
+        acpane.getChildren().add(p);
+
+    }
 
 public BorderPane getborder(){
     return Bpadmin;
@@ -37,5 +48,8 @@ public BorderPane getborder(){
 public void setLabel(String s){
 l.setText(s);
 }
+
+    
+  
    
 }
