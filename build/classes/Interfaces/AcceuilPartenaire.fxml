@@ -41,7 +41,7 @@
                               <Insets bottom="20.0" />
                            </padding>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="Gérer Event " textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="event" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
@@ -108,7 +108,7 @@
          <children>
             <Pane fx:id="acpane" layoutY="14.0" prefHeight="642.0" prefWidth="797.0">
                <children>
-                  <Label fx:id="l" layoutX="392.0" layoutY="80.0" text="Label" />
+                  <Label fx:id="l" layoutX="392.0" layoutY="80.0" />
                </children></Pane>
          </children></AnchorPane>
    </center>

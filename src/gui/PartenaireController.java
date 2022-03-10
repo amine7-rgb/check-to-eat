@@ -137,12 +137,6 @@ public class PartenaireController implements Initializable {
     @FXML
     private AnchorPane rec;
     @FXML
-    private JFXButton gg;
-    @FXML
-    private JFXTextField tus;
-    @FXML
-    private JFXTextField tid_ca;
-    @FXML
     private TableColumn<Restau, String> cate;
     @FXML
     private TableView<Restau> tablel;
@@ -153,16 +147,12 @@ public class PartenaireController implements Initializable {
     @FXML
     private ImageView img;
     @FXML
-    private JFXButton exit;
-    @FXML
     private PieChart pc;
     @FXML
     private JFXButton sta;
  
     
     private String id;
-    @FXML
-    private Label userid;
     
     /**
      * Initializes the controller class.
@@ -502,8 +492,7 @@ afficher();
         
     }
     */
-
-    @FXML
+/*
     private void gotoo(ActionEvent event)throws IOException {
         
           
@@ -517,7 +506,7 @@ afficher();
       
  
     }
-
+*/
     @FXML
     private void rechhh(ActionEvent event) throws SQLException {
          if(!rech.getText().isEmpty())
@@ -593,13 +582,13 @@ afficher();
         }
 
     }
+    /*
 
-    @FXML
     private void close(ActionEvent event) {
                 System.exit(0);
 
     }
-    
+    */
     
     public void start(Stage stage) {
        
@@ -631,10 +620,10 @@ afficher();
         int all = r.kolfelkol();
         
         final Label caption = new Label("");
-caption.setTextFill(Color.BLACK);
-caption.setStyle("-fx-font: 24 arial;");
+        caption.setTextFill(Color.BLACK);
+        caption.setStyle("-fx-font: 24 arial;");
         for (final PieChart.Data data : chart.getData()) {
-    data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED,
+        data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED,
         new EventHandler<MouseEvent>() {
             @Override public void handle(MouseEvent e) {
                 caption.setTranslateX(e.getSceneX());

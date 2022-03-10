@@ -6,13 +6,25 @@
 package Controllers;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import service.RestauService;
 
 /**
  *
@@ -33,7 +45,7 @@ public class PartenaireController {
     private Button GererCat;
     @FXML
     private Label l;
-
+  RestauService r =new RestauService();
     
     
     @FXML
@@ -58,7 +70,5 @@ public class PartenaireController {
 
     }
 
-   
-
-    }
-
+}
+     
