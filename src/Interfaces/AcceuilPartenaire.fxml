@@ -104,7 +104,7 @@
       </VBox>
    </left>
    <center>
-      <AnchorPane prefHeight="479.0" prefWidth="796.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="contentArea" prefHeight="479.0" prefWidth="796.0" BorderPane.alignment="CENTER">
          <children>
             <Pane fx:id="acpane" prefHeight="642.0" prefWidth="797.0">
                <children>

@@ -5,6 +5,8 @@
  */
 package Controllers;
 
+import static Controllers.SigninController.PHOTOU;
+import static Controllers.SigninController.idu;
 import Entities.Utilisateur;
 import Services.ServiceAdmin;
 import Services.ServiceUtilisateur;
@@ -16,26 +18,37 @@ import static java.lang.String.valueOf;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import static java.util.Collections.list;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import static javafx.scene.input.KeyCode.L;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import utils.DataSource;
 
 /**
  *
  * @author GhAlone
  */
-public class ProfilePartenaireController  implements Initializable{
-     @FXML
+public class ProfilePartenaireController implements Initializable {
+
     private Pane acpane;
 
     @FXML
@@ -45,98 +58,139 @@ public class ProfilePartenaireController  implements Initializable{
     private Button bt_img;
 
     @FXML
-    private TextField txt_nom;
+    private Label Lnom;
 
     @FXML
-    private TextField txt_prenom;
+    private Label Lprenom;
 
     @FXML
-    private TextField txt_email;
+    private Label LAdress;
 
     @FXML
-    private TextField txt_num;
+    private Label Lnum;
 
     @FXML
-    private TextField txt_genre;
-    
+    private Label Lgenre;
+
     @FXML
     private ImageView imageView;
-    
-      @FXML
-    private Label lid;
 
-    
+    @FXML
+    private Label lid;
+    String nom, prenom, email, genre, pic;
+    int num;
     private File selectedFile;
+    private Image image1;
 
     ServiceUtilisateur userser = new ServiceUtilisateur();
 
-    
-   
-  
-    
-    
-    
-    public void setuser(Utilisateur user){
-    txt_nom.setText(user.getNom());
-    txt_prenom.setText(user.getPrenom());
-    txt_email.setText(user.getAdress_email());
-    txt_num.setText(valueOf(user.getNum_tel()));
-    txt_genre.setText(user.getGenre());
-    lid.setText(valueOf(user.getId()));
+    Utilisateur user = new Utilisateur();
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        user.getNom();
+        System.out.println(lid.getText());
+        affichu();
+              /*  Path to = Paths.get(PHOTOU);
+        System.out.println(to);
+       image1 = new Image(String.valueOf(to));
+imageView.setImage(image1);
+     // System.out.println(image1);*/
+       
+    }
+
+    public void affichu() {
+        Connection cnx = DataSource.getInstance().getCnx();
+
+        try {
+            String req = "select * from utilisateur where id=?";
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setInt(1, idu);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                nom = rs.getString("nom");
+                System.out.println(nom);
+                Lnom.setText(nom);
+                
+                prenom=rs.getString("prenom");
+                Lprenom.setText(prenom);
+                
+                 num=rs.getInt("num_tel");
+                Lnum.setText(String.valueOf(num));
+                
+                email=rs.getString("adress_email");
+                LAdress.setText(email);
+                
+                genre=rs.getString("genre");
+                Lgenre.setText(genre);
+                
+                
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
-    
-    public ImageView getim(){
-    return imageView;
+
+    public void setuser() {
+        /* Lnom.setText(user.getNom());
+    Lprenom.setText(user.getPrenom());
+    Lemail.setText(user.getAdress_email());
+    Lgenre.setText(user.getGenre());
+    lid.setText(valueOf(user.getId()));*/
+
+        System.out.println();
+
     }
-    
+
+    public ImageView getim() {
+        return imageView;
+    }
+
     @FXML
-     public void onChoseFile(ActionEvent event){
+    public void onChoseFile(ActionEvent event) {
         FileChooser fc = new FileChooser();
         selectedFile = fc.showOpenDialog(null);
-        if (selectedFile != null){
+        if (selectedFile != null) {
             try {
                 Image image = new Image(new FileInputStream(selectedFile));
                 imageView.setImage(image);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-        }else{
+        } else {
             System.out.println("Hey");
         }
     }
-     
-     
-     @FXML
-    void modifier(ActionEvent event) {
-        Path from = Paths.get(selectedFile.toURI());
-                Path to = Paths.get("C:\\Users\\GhAlone\\Documents\\NetBeansProjects\\MainJavaFX\\src\\Images/"+selectedFile.getName());
-        Utilisateur upuser = new Utilisateur( txt_nom.getText(), txt_prenom.getText(), Integer.parseInt(txt_num.getText()), txt_genre.getText(), txt_email.getText(), to.normalize().toString());
+
+    @FXML
+    void modifier(ActionEvent event) throws IOException {
+      /*  Path from = Paths.get(selectedFile.toURI());
+        Path to = Paths.get("C:\\Users\\GhAlone\\Documents\\NetBeansProjects\\MainJavaFX\\src\\Images/" + selectedFile.getName());
+        Utilisateur upuser = new Utilisateur(Integer.parseInt(lid.getText()), Lnom.getText(), Lprenom.getText(),Integer.parseInt(Lnum.getText()),Lgenre.getText(),LAdress.getText(), to.normalize().toString());
         userser.profil(upuser);
-         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);
         alert.setContentText("modification avec succés!");
-        alert.show();
+        alert.show();*/
+      
+                Parent root =FXMLLoader.load(getClass().getResource("/Interfaces/profilmodif.fxml"));    
+                Stage mainStage = new Stage();
+                Scene scene = new Scene(root);
+                mainStage.setScene(scene);
+                mainStage.show();
     }
-    
-    
-    
 
-
-    
-    
-    @FXML
     void changeUser(ActionEvent event) throws IOException {
         Pane p = FXMLLoader.load(getClass().getResource("/Interfaces/modifierUsers.fxml"));
         acpane.getChildren().add(p);
 
     }
+ @FXML
+    void reload(MouseEvent event) {
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        
-        System.out.println(lid.getText());
     }
+    
 }
