@@ -158,10 +158,10 @@ public class Gestion_evenement1Controller implements Initializable {
 
     @FXML
     private void onCreate(ActionEvent event) {
-     FXMLLoader loader = new FXMLLoader(getClass().getResource("option1.fxml"));
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("option2.fxml"));
         try {
             Parent root = loader.load();
-            Option1Controller controller = loader.getController();
+            Option2Controller controller = loader.getController();
             tfNom.getScene().setRoot(root);
         }catch(IOException ex){
             System.out.println(ex.getMessage());
