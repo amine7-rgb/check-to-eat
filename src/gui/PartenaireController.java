@@ -167,7 +167,7 @@ public class PartenaireController implements Initializable {
             combo.getItems().addAll(c.read());
             // combo.setOnAction(e->System.out.println("aaaa"));
 //      String date = mydatepicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-afficher();
+            afficher();
 // nb.setPrefColumnCount(r.nbpartenaireTotal());
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -417,17 +417,25 @@ afficher();
     }
 
     @FXML
-    private void trier(ActionEvent event) {
+    private void trier(ActionEvent event) throws SQLException {
         
         
-        ObservableList obeListe = FXCollections.observableList(r.readn());
+         ObservableList obeListe = FXCollections.observableList(r.readtifusss(Integer.parseInt(r.myid())));
 
         cid.setCellValueFactory(new PropertyValueFactory<>("id"));
         cnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         cdate.setCellValueFactory(new PropertyValueFactory<>("datef"));
+        cimage.setCellValueFactory(new PropertyValueFactory<>("image"));
+       //cdate.setDayCellFactory(date);
         clocal.setCellValueFactory(new PropertyValueFactory<>("local"));
         cdesc.setCellValueFactory(new PropertyValueFactory<>("descr"));
-        cate.setCellValueFactory(new PropertyValueFactory<>("id_cat"));
+      
+        
+        cate.setCellValueFactory(new PropertyValueFactory<>("type"));
+       
+        System.out.println(obeListe);
+       // ComboBox<Categorie> = FXCollections.observableArrayList("id_cat");
+     
         
         
         tablel.setItems(obeListe);

@@ -106,7 +106,7 @@ public class Plus_detailleController implements Initializable {
     private void back(ActionEvent event) throws IOException{
        
           
-          Parent root =FXMLLoader.load(getClass().getResource("partenaire.fxml"));    
+          Parent root =FXMLLoader.load(getClass().getResource("/Interfaces/AcceuilPartenaire.fxml"));    
                 Stage mainStage = new Stage();
                 Scene scene = new Scene(root);
                 mainStage.setScene(scene);

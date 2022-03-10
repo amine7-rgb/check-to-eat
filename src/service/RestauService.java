@@ -390,7 +390,7 @@ public class RestauService implements IService<Restau>{
         
                  
                    // Categorie m =new Categorie();
-           String ahmed="";
+           String amine="";
      
         try {
             
@@ -399,16 +399,42 @@ public class RestauService implements IService<Restau>{
             //ste=conn.createStatement();
            // rs= ste.executeQuery(req);
             while(rs.next()){
-                ahmed = rs.getString("id");
+                amine = rs.getString("id");
             }
         } catch (SQLException ex) {
             Logger.getLogger(RestauService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return ahmed;
+        return amine;
     
     }
      
      
+     
+     public List<Restau> readtifusss(int id) throws SQLException {
+        
+                    List<Restau> list=new ArrayList<>();
+                 //   Restau r = new Restau();
+                   // int a =r.getcat().getId();
+                    CatService ca = new CatService();
+                   // Categorie m =new Categorie();
+                    
+        try {
+            
+                PreparedStatement req= conn.prepareStatement("SELECT * FROM partenaire INNER JOIN categorie ON categorie.id = partenaire.id_cat where partenaire.id_us = ? ORDER BY nom ASC");
+            req.setInt(1,id);
+            ResultSet rs= req.executeQuery();
+            
+            //ste=conn.createStatement();
+           // rs= ste.executeQuery(req);
+            while(rs.next()){
+             list.add(new Restau(rs.getInt("id"), rs.getString("nom"), rs.getString("datef"), rs.getString("local"), rs.getString("image"), rs.getString("descr"),rs.getString("type")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RestauService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    
+    }
      
      
      
