@@ -51,17 +51,13 @@ public class evenementService {
         try {
             PreparedStatement pt =conn.prepareStatement("delete from evenement where id =?");
             pt.setInt(1,id);
-            pt.execute();
-            //UpdateTable();
-            
+            pt.execute();            
         } catch (SQLException ex) {
             System.out.println("amine");
         }   
     }
 
-    public void update(int id , String m ,int p)
-       
-//     {  String pnom =e.getNom_resto(); 
+    public void update(int id , String m ,int p) 
    
     {
     String req = "UPDATE evenement SET sujet=? ,nbre_place=? WHERE id =?";
@@ -71,14 +67,8 @@ public class evenementService {
             pst = conn.prepareStatement(req);
             pst.setString(1,m);
             pst.setInt(2,p);
-            pst.setInt(3,id);
-            //pst.setInt(5, r.getId_cat());
-            //pst.setString(6, e.getNom_resto());            
-           //   pst.setInt(3,i);
-           pst.execute();
-           
-            
-            
+            pst.setInt(3,id);           
+            pst.execute(); 
         } catch (SQLException ex) {
             Logger.getLogger(evenementService.class.getName()).log(Level.SEVERE, null, ex);
         }
