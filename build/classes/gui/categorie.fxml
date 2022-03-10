@@ -22,7 +22,7 @@
          <font>
             <Font name="Arial Black" size="18.0" />
          </font></JFXButton>
-      <TableView fx:id="table" cache="true" layoutX="412.0" layoutY="110.0" onMouseClicked="#go_table" prefHeight="319.0" prefWidth="507.0" AnchorPane.topAnchor="110.0">
+      <TableView fx:id="table" cache="true" layoutX="384.0" layoutY="110.0" onMouseClicked="#go_table" prefHeight="319.0" prefWidth="535.0" AnchorPane.topAnchor="110.0">
         <columns>
           <TableColumn fx:id="c1" prefWidth="75.0" text="id" />
           <TableColumn fx:id="c2" prefWidth="75.0" text="type" />
@@ -50,22 +50,16 @@
             <Font name="Arial Black" size="18.0" />
          </font>
       </JFXButton>
-      <Label layoutX="20.0" layoutY="57.0" prefHeight="53.0" prefWidth="364.0" text="Liste des Catégories" textFill="#05a8eb">
+      <Label layoutX="14.0" layoutY="35.0" prefHeight="53.0" prefWidth="364.0" text="Liste des Catégories" textFill="#05a8eb">
          <font>
             <Font name="Tahoma" size="36.0" />
          </font>
       </Label>
-      <TextField fx:id="rech" layoutX="419.0" layoutY="68.0" onKeyPressed="#ChercherCentreParType" prefHeight="31.0" prefWidth="492.0" />
-      <JFXButton fx:id="tri" contentDisplay="CENTER" layoutX="789.0" layoutY="523.0" onAction="#tri" prefHeight="10.0" prefWidth="107.0" style="-fx-background-color: #3F93C6;" text="tri">
+      <TextField fx:id="rech" layoutX="606.0" layoutY="57.0" onKeyPressed="#ChercherCentreParType" prefHeight="31.0" prefWidth="303.0" />
+      <JFXButton fx:id="tri" contentDisplay="CENTER" layoutX="778.0" layoutY="517.0" onAction="#tri" prefHeight="39.0" prefWidth="131.0" style="-fx-background-color: #3F93C6;" text="tri">
          <font>
             <Font name="Arial Black" size="15.0" />
          </font></JFXButton>
-      <JFXButton fx:id="br" layoutX="682.0" layoutY="14.0" onAction="#go" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: red;" text="go to Restau">
-         <font>
-            <Font name="Berlin Sans FB" size="13.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="exit" layoutX="838.0" layoutY="11.0" onAction="#close" prefHeight="31.0" prefWidth="95.0" style="-fx-background-color: red;" text="exit" />
       <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" layoutX="48.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

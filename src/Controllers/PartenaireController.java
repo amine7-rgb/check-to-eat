@@ -45,7 +45,8 @@ public class PartenaireController {
     private Button GererCat;
     @FXML
     private Label l;
-  RestauService r =new RestauService();
+ 
+  
     
     
     @FXML

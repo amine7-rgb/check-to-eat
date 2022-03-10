@@ -85,12 +85,8 @@ public class CategorieController implements Initializable {
     SoundClick sc =new SoundClick();
     @FXML
     private JFXButton tri;
-    @FXML
-    private JFXButton br;
     private Stage stage;
     private Scene scene;
-    @FXML
-    private JFXButton exit;
     @FXML
     private ImageView img;
     
@@ -257,8 +253,7 @@ public class CategorieController implements Initializable {
         
     }
 */
-
-    @FXML
+/*
     private void go(ActionEvent event) throws IOException{
         
       
@@ -283,7 +278,7 @@ public class CategorieController implements Initializable {
         
         
     }
-    
+    */
       
     
     private Boolean testType() {
@@ -308,14 +303,13 @@ public class CategorieController implements Initializable {
 
     }
     
-
-    @FXML
+/*
     private void close(ActionEvent event) {
         System.exit(0);
     }
            
     
-    
+   */ 
     
     }
     

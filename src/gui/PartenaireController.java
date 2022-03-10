@@ -148,8 +148,6 @@ public class PartenaireController implements Initializable {
     private ImageView img;
     @FXML
     private PieChart pc;
-    @FXML
-    private JFXButton sta;
  
     
     private String id;
@@ -223,11 +221,12 @@ afficher();
           Restau m = new Restau(tnom.getText(),date ,tlocal.getText(), elpath , tdesc.getText(),combo.getSelectionModel().getSelectedItem(),Integer.parseInt(r.myid()));
         if (testNom())
         
-          r.insertt(m);
-    //    sc.playClick();
-       // srvqr.create(tnom.getText());
-      //  srvmail.send_mail("mohamedamine.eloudi@esprit.tn ", tnom.getText());
-        //pds.add("c:");
+        r.insertt(m);
+        sc.playClick();
+        srvnot.notif("ajoutée"); 
+        srvqr.create(tnom.getText());
+        srvmail.send_mail("mohamedamine.eloudi@esprit.tn ", tnom.getText());
+        pds.add("c:");
       //  srvss.SendSMS("WMS", "Categorie Passé avec succes", "21651833422");
         clear();
         afficher();
@@ -589,12 +588,12 @@ afficher();
 
     }
     */
-    
+    /*
     public void start(Stage stage) {
        
         stage.show();
     }
-
+/*
     @FXML
     private void staa(ActionEvent event)  throws  IOException {
           
@@ -649,6 +648,7 @@ afficher();
         
         
     }
+*/
     
       
             }
