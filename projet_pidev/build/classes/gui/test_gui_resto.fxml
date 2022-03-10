@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.3946980854197349" prefHeight="506.0" prefWidth="681.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Test_gui_restoController">
+   <items>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="504.0" prefWidth="292.0">
+         <children>
+            <ImageView fx:id="photo" fitHeight="102.0" fitWidth="131.0" layoutX="60.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@0013_h_mcdonalds-logo_15.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="tfNom" layoutX="75.0" layoutY="134.0" text="McDonald's" textAlignment="CENTER" textFill="#ee0a07" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnajout" layoutX="84.0" layoutY="196.0" mnemonicParsing="false" text="Ajouter">
+               <effect>
+                  <ColorAdjust contrast="1.0" />
+               </effect>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="btngestion" layoutX="9.0" layoutY="408.0" mnemonicParsing="false" onAction="#onClick" text="Gestion des evenements">
+               <effect>
+                  <ColorAdjust contrast="1.0" />
+               </effect>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnsupp" layoutX="71.0" layoutY="260.0" mnemonicParsing="false" text="Supprimer">
+               <effect>
+                  <ColorAdjust contrast="1.0" />
+               </effect>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnmodif" layoutX="79.0" layoutY="334.0" mnemonicParsing="false" text="Modifier">
+               <effect>
+                  <ColorAdjust contrast="1.0" />
+               </effect>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="439.0" prefWidth="397.0" />
+   </items>
+</SplitPane>
