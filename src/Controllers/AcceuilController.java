@@ -46,7 +46,7 @@ public BorderPane getborder(){
 }
 
 public void setLabel(String s){
-l.setText(s);
+     l.setText(s);
 }
 
     

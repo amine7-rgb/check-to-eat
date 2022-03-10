@@ -187,28 +187,8 @@ ToggleGroup groupGender=new ToggleGroup();
         alert.setHeaderText(null);
         alert.setContentText("Formateur insérée avec succés!");
         alert.setOnCloseRequest(event -> { 
-             if(type.getValue().equals("user")){
-                 try {
-                     Parent root =FXMLLoader.load(getClass().getResource("/Interfaces/AceuilUser.fxml"));
-                     Stage mainStage = new Stage();
-                     Scene scene = new Scene(root);
-                     mainStage.setScene(scene);
-                     mainStage.show();
-                 } catch (IOException ex) {
-                     Logger.getLogger(SignupController.class.getName()).log(Level.SEVERE, null, ex);
-                 }
-                }else{
-                 try {
-                     Parent root =FXMLLoader.load(getClass().getResource("/Interfaces/AcceuilPartenaire.fxml"));
-                     Stage mainStage = new Stage();
-                     Scene scene = new Scene(root);
-                     mainStage.setScene(scene);
-                     mainStage.show();
-                 } catch (IOException ex) {
-                     Logger.getLogger(SignupController.class.getName()).log(Level.SEVERE, null, ex);
-                 }
-                  
-                    }
+            
+                System.exit(0);
                 
         });
         alert.showAndWait();

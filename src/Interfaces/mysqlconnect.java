@@ -19,7 +19,7 @@ public class mysqlconnect {
       
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/pi","root","");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/check_to_eat","root","");
         JOptionPane.showMessageDialog(null,"Connection established");
         return conn;
         

@@ -31,6 +31,17 @@ public class Utilisateur {
         this.id = id;
     }
 
+    public Utilisateur(int id, String nom, String prenom, int num_tel, String mot_pass, String genre, String adress_email, String role) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.num_tel = num_tel;
+        this.mot_pass = mot_pass;
+        this.genre = genre;
+        this.adress_email = adress_email;
+        this.role = role;
+    }
+
 
 
     public Utilisateur(String mot_pass, String adress_email, String role) {
@@ -40,6 +51,16 @@ public class Utilisateur {
     }
 
     public Utilisateur(String nom, String prenom, int num_tel, String genre, String adress_email, String image) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.num_tel = num_tel;
+        this.genre = genre;
+        this.adress_email = adress_email;
+        this.image = image;
+    }
+
+    public Utilisateur(int id, String nom, String prenom, int num_tel, String genre, String adress_email, String image) {
+        this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.num_tel = num_tel;
@@ -81,6 +102,14 @@ public class Utilisateur {
 
     public Utilisateur() {
         
+    }
+
+    public Utilisateur(int parseInt, String text, String text0, String text1, String text2, String toString) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Utilisateur(int parseInt, String text, String text0, int parseInt0, String text1, String text2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getId() {

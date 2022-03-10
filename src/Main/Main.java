@@ -20,11 +20,11 @@ import javafx.stage.Stage;
  *
  * @author GhAlone
  */
-public class Main extends Application {
+public class Main {
 
 
     
-    @Override
+ /*   @Override
     public void start(Stage primaryStage) {
         Button btn = new Button();
         btn.setText("Say Hello World");
@@ -38,22 +38,22 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
+*/
     /**
      * @param args the command line arguments
      */
     
     public static void main(String[] args) {
-        //ServiceUtilisateur sp2 = new ServiceUtilisateur();
+        ServiceUtilisateur sp2 = new ServiceUtilisateur();
         //System.out.println(sp2.connecter(new Utilisateur("ghassen","ghg","User")));
         //sp2.modifier(new Utilisateur(1,"ghassen","dhif",545646,"ljdkaz","wom","ljk@hj","hgklj","azdhjkahzdlkjazm"));
         //sp2.inscrir(new Utilisateur("gahssen","hassen",456,"jkhfghj","azfhgjgd","dqjksh@qsdb","djqhs","kjdaz"));
         //sp2.changer_pass(new Utilisateur(2,"ghassen"));
-        //System.out.println(sp2.afficher());
+       // System.out.println(sp2.afficher());
         ServiceAdmin sa2= new ServiceAdmin();
         //System.out.println(sa2.connecter(new Utilisateur("ghassen","ghg","Admin")));
         //sa2.modifier(new Utilisateur(1,"lmcwxklmk","wcvx",545646,"ljdkaz","wom","ljk@hj","bgbb","azdhjkahzdlkjazm"));
         //System.out.println(sa2.afficher());
-        sa2.delete(new Utilisateur(11));
+     //   sa2.delete(new Utilisateur(11));
     }
 }
