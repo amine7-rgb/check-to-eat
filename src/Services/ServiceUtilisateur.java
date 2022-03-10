@@ -20,6 +20,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import utils.Datasource;
+
 /**
  *
  * @author GhAlone
@@ -55,9 +56,9 @@ public class ServiceUtilisateur implements UService<Utilisateur> {
     @Override
     public void profil(Utilisateur u) {
             try {
-                String req="update utilisateur set nom=?,prenom=?,num_tel=?,genre=?,adress_email=?,image=? where id=?";
+                String req="update utilisateur set nom=?,prenom=?,num_tel=?,genre=?,adress_email=?, where id=?";
                 PreparedStatement pst=cnx.prepareStatement(req);
-                 pst.setInt(7,u.getId());
+                 pst.setInt(6,u.getId());
                 pst.setString(1,u.getNom());
                 pst.setString(2,u.getPrenom());
                 pst.setInt(3,u.getNum_tel());
@@ -142,6 +143,7 @@ public class ServiceUtilisateur implements UService<Utilisateur> {
             System.out.println(ex.getMessage());       } 
         return list;
     }
+  
     
     public String recEmail (String user) {
         String req="select adress_email from utilisateur where adress_email ='"+user+"'";

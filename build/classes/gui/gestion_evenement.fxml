@@ -76,7 +76,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <TextField fx:id="tfchercher" layoutX="139.0" layoutY="22.0" onAction="#Recherche" prefHeight="31.0" prefWidth="438.0" promptText="Rechercher" />
+            <TextField fx:id="tfchercher" layoutX="139.0" layoutY="22.0" onAction="#Rechercher" prefHeight="31.0" prefWidth="438.0" promptText="Rechercher" />
             <Label fx:id="tfrecherche" layoutX="47.0" layoutY="27.0" text="Recherche :">
                <font>
                   <Font size="15.0" />

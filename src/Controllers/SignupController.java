@@ -178,37 +178,16 @@ ToggleGroup groupGender=new ToggleGroup();
                 RadioButton selectedRadioButton = (RadioButton) groupGender.getSelectedToggle();
             String toogleGroupValue = selectedRadioButton.getText();
                 Path from = Paths.get(selectedFile.toURI());
-                Path to = Paths.get("C:\\Users\\GhAlone\\Documents\\NetBeansProjects\\MainJavaFX\\src\\Images/"+selectedFile.getName());
+                Path to = Paths.get("C:\\Users\\amed1\\Desktop\\MainJavaFX\\src\\Images/"+selectedFile.getName());
                 //Files.copy(from,to);
                 Utilisateur user = new Utilisateur(nom.getText(),prenom.getText(),Integer.parseInt(num.getText()),hashPassword(mdp.getText()),toogleGroupValue, email.getText(),(String) type.getValue(), to.normalize().toString());
                 us.inscrir(user);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);
-        alert.setContentText("Formateur insérée avec succés!");
+        alert.setContentText("User insérée avec succés!");
         alert.setOnCloseRequest(event -> { 
-             if(type.getValue().equals("user")){
-                 try {
-                     Parent root =FXMLLoader.load(getClass().getResource("/Interfaces/AceuilUser.fxml"));
-                     Stage mainStage = new Stage();
-                     Scene scene = new Scene(root);
-                     mainStage.setScene(scene);
-                     mainStage.show();
-                 } catch (IOException ex) {
-                     Logger.getLogger(SignupController.class.getName()).log(Level.SEVERE, null, ex);
-                 }
-                }else{
-                 try {
-                     Parent root =FXMLLoader.load(getClass().getResource("/Interfaces/AcceuilPartenaire.fxml"));
-                     Stage mainStage = new Stage();
-                     Scene scene = new Scene(root);
-                     mainStage.setScene(scene);
-                     mainStage.show();
-                 } catch (IOException ex) {
-                     Logger.getLogger(SignupController.class.getName()).log(Level.SEVERE, null, ex);
-                 }
-                  
-                    }
+            System.exit(0);
                 
         });
         alert.showAndWait();

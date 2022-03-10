@@ -35,7 +35,6 @@ import javafx.stage.FileChooser;
  * @author GhAlone
  */
 public class ProfilePartenaireController  implements Initializable{
-     @FXML
     private Pane acpane;
 
     @FXML
@@ -44,19 +43,14 @@ public class ProfilePartenaireController  implements Initializable{
     @FXML
     private Button bt_img;
 
-    @FXML
     private TextField txt_nom;
 
-    @FXML
     private TextField txt_prenom;
 
-    @FXML
     private TextField txt_email;
 
-    @FXML
     private TextField txt_num;
 
-    @FXML
     private TextField txt_genre;
     
     @FXML
@@ -69,6 +63,16 @@ public class ProfilePartenaireController  implements Initializable{
     private File selectedFile;
 
     ServiceUtilisateur userser = new ServiceUtilisateur();
+    @FXML
+    private Label Lnom;
+    @FXML
+    private Label Lprenom;
+    @FXML
+    private Label LAdress;
+    @FXML
+    private Label Lnum;
+    @FXML
+    private Label Lgenre;
 
     
    
@@ -127,7 +131,6 @@ public class ProfilePartenaireController  implements Initializable{
 
     
     
-    @FXML
     void changeUser(ActionEvent event) throws IOException {
         Pane p = FXMLLoader.load(getClass().getResource("/Interfaces/modifierUsers.fxml"));
         acpane.getChildren().add(p);

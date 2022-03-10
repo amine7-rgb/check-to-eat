@@ -45,11 +45,15 @@ public class Admincontroller {
     private Button ca;
    
 RestauService r =new RestauService();
+    @FXML
+    private AnchorPane am;
     
     
     @FXML
     void changeUser(ActionEvent event) throws IOException {
         Pane p = FXMLLoader.load(getClass().getResource("/Interfaces/modifierUsers.fxml"));
+           acpane.getChildren().clear();
+     
         acpane.getChildren().add(p);
 
     }
@@ -58,6 +62,8 @@ RestauService r =new RestauService();
     
     private void addcateg(ActionEvent event)  throws IOException {
     Pane p = FXMLLoader.load(getClass().getResource("/gui/categorie.fxml"));
+       acpane.getChildren().clear();
+     
         acpane.getChildren().add(p);
 
     }
@@ -65,24 +71,31 @@ RestauService r =new RestauService();
     @FXML
     private void addmenu(ActionEvent event) throws IOException{
          Pane p = FXMLLoader.load(getClass().getResource("/gui/cat.fxml"));
+         acpane.getChildren().clear();
         acpane.getChildren().add(p);
     }
     
        @FXML
     void afficherC(ActionEvent event)  throws IOException{
              Pane p = FXMLLoader.load(getClass().getResource("/views/FXMLAffiche.fxml"));
+                acpane.getChildren().clear();
+            
         acpane.getChildren().add(p);
     }
      
     @FXML
     void ajouterpanier(ActionEvent event) throws IOException{
          Pane p = FXMLLoader.load(getClass().getResource("/views/FXMLAffichePanier.fxml"));
+            acpane.getChildren().clear();
+        
         acpane.getChildren().add(p);
     }
 
     @FXML
     private void sta(ActionEvent event)  throws IOException{
         Parent root =FXMLLoader.load(getClass().getResource("/gui/stat.fxml"));    
+           acpane.getChildren().clear();
+        
                 Stage stage = new Stage();
              Scene scene = new Scene(new Group());
         

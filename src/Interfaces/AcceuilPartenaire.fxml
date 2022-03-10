@@ -52,7 +52,7 @@
                               <Insets bottom="20.0" />
                            </padding>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#addevent" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="Gérer evenement" textFill="WHITE">
+                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #0A0232;" text="Gérer evenement" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
@@ -104,7 +104,7 @@
       </VBox>
    </left>
    <center>
-      <AnchorPane prefHeight="479.0" prefWidth="796.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="contentArray" prefHeight="479.0" prefWidth="796.0" BorderPane.alignment="CENTER">
          <children>
             <Pane fx:id="acpane" layoutY="14.0" prefHeight="642.0" prefWidth="797.0">
                <children>

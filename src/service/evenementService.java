@@ -120,21 +120,18 @@ public class evenementService {
         return event;
     }
     
-    public List<evenement> Recherche(int id) {
-         List<evenement> listE = new ArrayList<>();
+    public List<evenement> Rechercher(String sujet) {
+         String req="select * from `evenement` where sujet='"+ sujet +"'";
+         List<evenement> list = new ArrayList<>();
         try {
-            evenement e = new evenement();
-            Statement st = conn.createStatement();
-            String requete = "SELECT * FROM evenement WHERE id = '"+id+"'";
-            //System.out.println("Evenement trouvee!");
-            ResultSet rs = st.executeQuery(requete);
-            while (rs.next()) {   
-           listE.add(new evenement(rs.getDate(2), rs.getDate(3), rs.getString(4), rs.getInt(5)));
+            ste=conn.createStatement();
+            rs= ste.executeQuery(req);
+            while(rs.next()){
+                list.add(new evenement(rs.getInt(1), rs.getDate(2), rs.getDate(3),rs.getString(4),rs.getInt(5)));
             }
-            System.out.println(listE); 
         } catch (SQLException ex) {
-             Logger.getLogger(evenementService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
-        return listE;
+        return list;
     }
 }

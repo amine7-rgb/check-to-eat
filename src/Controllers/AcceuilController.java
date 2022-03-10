@@ -58,6 +58,7 @@ l.setText(s);
     private void menu(ActionEvent event) throws IOException {
         
        Pane p = FXMLLoader.load(getClass().getResource("/gui/AddMenu.fxml"));
+        acpane.getChildren().clear();
         acpane.getChildren().add(p);
         
         
@@ -66,12 +67,14 @@ l.setText(s);
     @FXML
     private void addpanier(ActionEvent event) throws IOException{
         Pane p = FXMLLoader.load(getClass().getResource("/views/FXMLchercherCommande.fxml"));
+         acpane.getChildren().clear();
         acpane.getChildren().add(p);
     }
 
       @FXML
     void imprimerpdf(ActionEvent event) throws IOException {
             Pane p = FXMLLoader.load(getClass().getResource("/views/FXMLcreatePDF.fxml"));
+             acpane.getChildren().clear();
             acpane.getChildren().add(p);
     }
 
@@ -87,6 +90,7 @@ l.setText(s);
     @FXML
     private void comm(ActionEvent event) throws IOException {
           Pane p = FXMLLoader.load(getClass().getResource("/views/FXMLclientcommande.fxml"));
+           acpane.getChildren().clear();
             acpane.getChildren().add(p);
     }
 }

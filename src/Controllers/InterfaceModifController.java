@@ -6,6 +6,7 @@ import Services.ServiceUtilisateur;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import static java.lang.ProcessBuilder.Redirect.to;
 import static java.lang.String.valueOf;
 import java.net.URL;
 import java.nio.file.Path;
@@ -19,12 +20,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
-import utils.Datasource;
+import static jdk.nashorn.internal.objects.NativeJava.to;
+
 
 
 /*
@@ -54,14 +55,12 @@ public class InterfaceModifController implements Initializable{
     @FXML
     private TextField txt_num;
 
-    @FXML
+     @FXML
     private ComboBox type;
 
-    @FXML
+     @FXML
     private PasswordField txt_mdp;
 
-    @FXML
-    private Button bt_modif;
 
     @FXML
     private Label id_lab;
@@ -69,7 +68,7 @@ public class InterfaceModifController implements Initializable{
     @FXML
     private Label lid;
 
-    @FXML
+     @FXML
     private ImageView imageView;
     
     
@@ -82,6 +81,7 @@ public class InterfaceModifController implements Initializable{
 
     ServiceAdmin admin = new ServiceAdmin();
     ServiceUtilisateur userser = new ServiceUtilisateur();
+    private Button upph;
 
     
    
@@ -94,6 +94,7 @@ public class InterfaceModifController implements Initializable{
     txt_prenom.setText(user.getPrenom());
     txt_genre.setText(user.getGenre());
     txt_email.setText(user.getAdress_email());
+    txt_num.setText(String.valueOf(user.getNum_tel()));
     lid.setText(valueOf(user.getId()));
     
     }
@@ -102,7 +103,6 @@ public class InterfaceModifController implements Initializable{
     return imageView;
     }
     
-    @FXML
      public void onChoseFile(ActionEvent event){
         FileChooser fc = new FileChooser();
         selectedFile = fc.showOpenDialog(null);
@@ -121,9 +121,10 @@ public class InterfaceModifController implements Initializable{
      
      @FXML
     void modifier(ActionEvent event) {
-        Path from = Paths.get(selectedFile.toURI());
-                Path to = Paths.get("C:\\Users\\GhAlone\\Documents\\NetBeansProjects\\MainJavaFX\\src\\Images/"+selectedFile.getName());
-        Utilisateur upuser = new Utilisateur(Integer.parseInt(lid.getText()), txt_nom.getText(), txt_prenom.getText(), Integer.parseInt(txt_num.getText()), txt_mdp.getText(), txt_genre.getText(), txt_email.getText(), type.getValue().toString(), to.normalize().toString());
+        
+    Path from = Paths.get(selectedFile.toURI());
+                Path to = Paths.get("C:\\Users\\amed1\\Desktop\\MainJavaFX\\src\\Images/"+selectedFile.getName());
+        Utilisateur upuser = new Utilisateur(Integer.parseInt(lid.getText()), txt_nom.getText(), txt_prenom.getText(), Integer.parseInt(txt_num.getText()), txt_mdp.getText(), txt_genre.getText(), txt_email.getText(), type.getValue().toString(),to.normalize().toString());
         userser.modifier(upuser);
          Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
@@ -132,16 +133,14 @@ public class InterfaceModifController implements Initializable{
         alert.show();
     }
     
-    
+
     
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
    type.getItems().addAll("Admin","user","partenaire");
         System.out.println(lid.getText());
-    
-    
-        
+     
     } }
 
                

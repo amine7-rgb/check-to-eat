@@ -19,7 +19,9 @@ import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -45,13 +47,17 @@ public class PartenaireController {
     private Button GererCat;
     @FXML
     private Label l;
+    @FXML
+    private AnchorPane contentArray;
  
   
     
     
     @FXML
     void changeUser(ActionEvent event) throws IOException {
-        Pane p = FXMLLoader.load(getClass().getResource("/Interfaces/profilePar.fxml"));
+      Pane p = FXMLLoader.load(getClass().getResource("/Interfaces/profilePar.fxml"));
+      acpane.getChildren().clear();
+
         acpane.getChildren().add(p);
 
     }
@@ -59,17 +65,18 @@ public class PartenaireController {
     @FXML
     private void addR(ActionEvent event)  throws IOException {
          Pane p = FXMLLoader.load(getClass().getResource("/gui/partenaire.fxml"));
+ acpane.getChildren().clear();
         acpane.getChildren().add(p);
         
     }
 
-
+/*
     @FXML
     private void addevent(ActionEvent event)  throws IOException {
-        Pane p = FXMLLoader.load(getClass().getResource("/gui/gestion_evenement.fxml"));
+        SplitPane p = FXMLLoader.load(getClass().getResource("/gui/gestion_evenement.fxml"));
         acpane.getChildren().add(p);
 
     }
-
+*/
 }
      

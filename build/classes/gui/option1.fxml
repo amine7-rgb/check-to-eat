@@ -76,7 +76,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="tfrechercher" layoutX="140.0" layoutY="34.0" onAction="#rechercher" prefHeight="30.0" prefWidth="269.0" promptText="Rechercher" />
+            <TextField fx:id="tfrechercher" layoutX="140.0" layoutY="34.0" onAction="#Rechercher" prefHeight="30.0" prefWidth="269.0" promptText="Rechercher" />
          </children></AnchorPane>
    </items>
 </SplitPane>

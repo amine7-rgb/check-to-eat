@@ -56,7 +56,6 @@
          </font>
       </Label>
       <Label fx:id="lid" layoutX="373.0" layoutY="103.0" visible="false" />
-      <Button layoutX="126.0" layoutY="434.0" mnemonicParsing="false" onAction="#onChoseFile" opacity="0.64" prefHeight="31.0" prefWidth="200.0" text="Import Image" />
       <ImageView fx:id="imageView" fitHeight="85.0" fitWidth="99.0" layoutX="169.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

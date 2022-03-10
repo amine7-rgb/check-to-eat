@@ -32,18 +32,6 @@ public class optionService {
         conn = Datasource.getInstance().getCnx();
     }
 
-    public void insert(option o) {
-        
-        String req = "insert into option (nom,prix) values (?,?)";
-        
-        try {
-            ste = conn.createStatement();
-            ste.executeUpdate(req);
-            } catch (SQLException ex) {
-            Logger.getLogger(optionService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
     public void inserOptionPst(option o) {
         
         String req = "insert into option (nom,prix) values (?,?)";
@@ -53,9 +41,8 @@ public class optionService {
             pst.setString(1,o.getNom());
             pst.setDouble(2,o.getPrix());
             pst.executeUpdate();
-
             } catch (SQLException ex) {
-            Logger.getLogger(optionService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
 
     }
@@ -67,25 +54,21 @@ public class optionService {
             pt.setInt(1,code);
             pt.execute();
             } catch (SQLException ex) {
-            Logger.getLogger(optionService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
  
     }
 
-    public void update(int code , String n ,double p){
-        {
+    public void update(int code , String nom ,double prix){
     String req = "UPDATE `option` SET `nom`=?,`prix`=? WHERE `code`=?";
-   
       try {
-          
             pst = conn.prepareStatement(req);
-            pst.setString(1,n);
-            pst.setDouble(2,p);
+            pst.setString(1,nom);
+            pst.setDouble(2,prix);
             pst.setInt(3,code);
-           pst.execute();   
+            pst.execute();   
         } catch (SQLException ex) {
-            Logger.getLogger(evenementService.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            System.out.println(ex.getMessage());
         }
     }
 
@@ -101,7 +84,7 @@ public class optionService {
                 list.add(new option(rs.getInt("code"), rs.getString(2), rs.getDouble(3)));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(optionService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
         return list;
     }
@@ -119,26 +102,23 @@ public class optionService {
                 op=new option(rs.getInt("code"), rs.getString(2), rs.getDouble(3));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(optionService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
         return op;
     }
 
-        public List<option> RechercheCommandei(int code) {
-         List<option> listE = new ArrayList<>();
+      public List<option> Rechercher(String nom) {
+         String req="select * from `option` where nom='"+ nom +"'";
+         List<option> list = new ArrayList<>();
         try {
-            option o = new option();
-            Statement st = conn.createStatement();
-            String requete = "SELECT * FROM commande WHERE id = '"+code+"'";
-            System.out.println("Commande trouvee!");
-            ResultSet rs = st.executeQuery(requete);
-            while (rs.next()) {   
-           listE.add(new option(rs.getInt("code"), rs.getString(2), rs.getDouble(3)));
+            ste=conn.createStatement();
+            rs= ste.executeQuery(req);
+            while(rs.next()){
+                list.add(new option(rs.getInt(1), rs.getString(2), rs.getDouble(3)));
             }
-            System.out.println(listE); 
         } catch (SQLException ex) {
-             Logger.getLogger(optionService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
-        return listE;
+        return list;
     }
 }

@@ -47,6 +47,8 @@ import gui.PartenaireController;
 
 
 public class SigninController implements Initializable{
+    public static int idu;
+    public  static String PHOTOU;
     
        @FXML
     private TextField email;
@@ -104,18 +106,24 @@ PartenaireController p = new PartenaireController();
                 p.myid(myid);
                 JOptionPane.showMessageDialog(null, "Usermane and Password is Correct");        
                 if(type.getValue().equals("Admin")){
+                idu=rs.getInt("id");
+                PHOTOU=rs.getString("image");
                 Parent root =FXMLLoader.load(getClass().getResource("/Interfaces/Acceuil.fxml"));    
                 Stage mainStage = new Stage();
                 Scene scene = new Scene(root);
                 mainStage.setScene(scene);
                 mainStage.show();
                 }else if(type.getValue().equals("user")){
+                    idu=rs.getInt("id");
+                    PHOTOU=rs.getString("image");
                 Parent root =FXMLLoader.load(getClass().getResource("/Interfaces/AceuilUser.fxml"));    
                 Stage mainStage = new Stage();
                 Scene scene = new Scene(root);
                 mainStage.setScene(scene);
                 mainStage.show();
                 }else{
+                    idu=rs.getInt("id");
+                    PHOTOU=rs.getString("image");
                 Parent root =FXMLLoader.load(getClass().getResource("/Interfaces/AcceuilPartenaire.fxml"));    
                 Stage mainStage = new Stage();
                 Scene scene = new Scene(root);

@@ -80,7 +80,7 @@ public class FXMLcreatePDFController implements Initializable {
              Document doc=new Document();       
         try {
            
-            PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\User\\Documents\\pdf132.pdf"));
+            PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\amed1\\Desktop\\pdf\\pdf132.pdf"));
             doc.open();
             doc.add(new Paragraph("C´est l´impression de la commande"));
             doc.add(new Paragraph("\n"));
@@ -147,10 +147,10 @@ public class FXMLcreatePDFController implements Initializable {
             doc.add(table);
             doc.add(new Paragraph("\n"));
             doc.add(new Paragraph("\n"));
-            Image img = Image.getInstance("C:\\Users\\User\\Downloads\\plat.png");
+            Image img = Image.getInstance("C:\\Users\\amed1\\Desktop\\plat.jpg");
             doc.add(img);
             doc.close();
-            Desktop.getDesktop().open(new File("C:\\Users\\User\\Documents\\pdf132.pdf"));
+            Desktop.getDesktop().open(new File("C:\\Users\\amed1\\Desktop\\pdf\\pdf132.pdf"));
         } 
         catch (FileNotFoundException ex) {
             ex.printStackTrace();

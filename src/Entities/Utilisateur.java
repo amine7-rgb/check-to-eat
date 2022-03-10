@@ -26,6 +26,16 @@ public class Utilisateur {
         this.adress_email = adress_email;
     }
 
+    public Utilisateur(int id, String nom, String prenom, String mot_pass, String genre, String adress_email, String role) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mot_pass = mot_pass;
+        this.genre = genre;
+        this.adress_email = adress_email;
+        this.role = role;
+    }
+
 
     public Utilisateur(int id) {
         this.id = id;
